@@ -1,0 +1,107 @@
+@set('title', 'SPYBET - Perfil')
+@include('layouts/main')
+@entryPointStyles('userPerfils')
+
+<div class="container-principal-user"> 
+    <div class="container-secundario-user">
+        <div class="conteiner-plan">
+            <h4>
+                Plano
+            </h4>
+            <div class="user-plan">
+                {{auth.user.name}}, ainda restam <span>{{dias}}</span> dias para o seu plano.
+            </div>
+            @if(flashMessages.has('success'))
+                <span class="alert alert-success">{{flashMessages.get('success')}}</span>
+            @endif
+        </div>
+        <div class="conteiner-user-update">
+            <h4>
+                <i class="fas fa-edit"></i>
+                Editar Usuario
+            </h4>
+            <div class="card-body">
+                <form action="{{ route('UserPerfilsController.update', {id:auth.user.id}) }}" method="POST" id="form-user-update">
+                     
+    
+                    <div class="form-group">
+                        <input type="hidden" value="{{auth.user.id}}">
+                        <p><label for="name">Nome</label></p>
+                        <p><input type="text" name="name" class="form-control control-nome" value="{{auth.user.name}}" disabled='true'><span class="form-control-nome notAutorization2"><i class="fa-solid fa-pen-to-square"></i></span></p>
+                        <h1 class='form-control-nome-msg'></h1>
+                    </div>
+                    <div class="form-group">
+                        <p><label for="name">Sobrenome</label></p>
+                        <p><input type="text" name="sobrenome" class="form-control control-sobrenome" value="{{auth.user.sobrenome}}" disabled='true'><span class="form-control-sobrenome notAutorization2"><i class="fa-solid fa-pen-to-square"></i></span></p>
+                        <h1 class='form-control-sobrenome-msg'></h1>
+                    </div>
+                    <div class="form-group">
+                        <p><label for="email">E-mail</label></p>
+                        <p><input type="text" name="email" class="form-control control-email" value="{{auth.user.email}}" disabled='true'><span class="form-control-email notAutorization2"></span></p>
+                        <h1 class='form-control-email-msg'></h1>
+                    </div>
+                    <div class="form-group">
+                        <p><label for="email">Telefone</label></p>
+                        <p><input type="tel" id="PHONE" onkeydown="return mascaraTelefone(event)" name="telefone" class="form-control control-telefone" value="{{auth.user.telefone}}" disabled='true'><span class="form-control-telefone notAutorization2"><i class="fa-solid fa-pen-to-square"></i></span></p>
+                        <h1 class='form-control-telefone-msg'></h1>
+                    </div>
+
+                    <div class="form-group">
+                        <p><label for="password">Senha</label></p>
+                        <p><input type="password" name="password" id="phone" class="form-control control-senha" value="*************" disabled='true'><span class="form-control-senha notAutorization2"><i class="fa-solid fa-pen-to-square"></i></span></p>
+                        <h1 class='form-control-senha-msg'></h1>
+                    </div>
+
+                    
+                    <div class="form-submit-button-user-update">
+                        <button type="submit" class="btn-primary" form="form-user-update" disabled='true'>
+                            <i class="fas fa-save"></i>
+                            Salvar
+                        </button>
+                        <h1 class='form-control-save-msg'></h1>
+                    </div>
+                    
+                    
+                    
+                    
+                    {{ csrfField() }} 
+                </form>
+            </div> 
+        </div>
+    </div>             
+</div>
+<script>
+function mascaraTelefone(event) {
+    let tecla = event.key;
+    let telefone = event.target.value.replace(/\D+/g, "");
+
+    if (/^[0-9]$/i.test(tecla)) {
+        telefone = telefone + tecla;
+        let tamanho = telefone.length;
+
+        if (tamanho >= 12) {
+            return false;
+        }
+        
+        if (tamanho > 10) {
+            telefone = telefone.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
+        } else if (tamanho > 5) {
+            telefone = telefone.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
+        } else if (tamanho > 2) {
+            telefone = telefone.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
+        } else {
+            telefone = telefone.replace(/^(\d*)/, "($1");
+        }
+
+        event.target.value = telefone;
+    }
+
+    if (!["Backspace", "Delete"].includes(tecla)) {
+        return false;
+    }
+}
+
+</script>
+
+
+@entryPointScripts('userPerfils')

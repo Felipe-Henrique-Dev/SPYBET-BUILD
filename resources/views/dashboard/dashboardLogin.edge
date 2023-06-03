@@ -1,0 +1,89 @@
+@include('dashboard/dashboardMenu')
+@entryPointScripts('dashboardLogin')
+@entryPointStyles('dashboardLogin')
+<span class="main-dashboard">
+    <h2><i class="fa-solid fa-user-secret"></i> ADMINISTRAÇÃO <i class="fa-solid fa-user-secret"></i></h2>
+</span>
+<section class="_arealogin">      
+    <div class="conteiner-principal-login">
+        <div class="conteiner-secundario-login">
+            <form action="{{route('DashboardController.loginPost')}}" method ="POST">
+                {{ csrfField() }}  
+                @if(flashMessages.has('error'))
+                    <span class="alert alert-error">{{flashMessages.get('error')}}</span>
+                @endif
+                @include('partials/alert')
+                @include('partials/errors')
+                
+                <div class="mini-conteiner-login">
+                    <p><label for="email">E-mail</label><i class="fa-solid fa-envelope"></i></p>
+                    <p><input type="email" name="email" class="login" ></p>
+                </div>
+    
+                <div class="mini-conteiner-login">
+                    <p><label for="password">Senha</label><i class="fa-solid fa-lock"></i></p>
+                    <p><input type="password" name="password" class="login"></p>
+                </div>
+                <div class="div-codigo-de-acesso" style="display:none">
+                    <label for="codigoDeAcesso" class="codigoDeAcesso">Código de acesso <i class="fa-solid fa-key"></i></label>
+                    <input type="password" name="codigoDeAcesso" id="codigoDeAcesso">
+                </div>
+                
+                <div class="mini-conteiner-btn">
+                    <span class="btn-login">
+                        <input type="submit"  class="btn-enviar" id="btn-Enviar" name='Enviar' value="Entrar" ><label for="btn-Enviar"><span class="btn-enviar-icon"></span></label></a>
+                    </span>
+                </div>
+                <input type="hidden" name="ip" class="inputIP" value="">
+            </form>
+
+            <div >
+                <input type="checkbox" name="primeiroAcesso" id="primeiroAcesso"> <label for="primeiroAcesso" class="primeiroAcesso">Primeiro acesso</label>
+            </div>
+
+            
+        </div>        
+    </div>
+</section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    async function getIpClient() {
+        try {
+        const response = await axios.get('https://api.ipify.org?format=json');
+        let inputIP = document.getElementsByClassName('inputIP');
+        inputIP[0].value = response.data.ip;
+        console.log(response.data.ip);
+        $('.inputIP').val(response.data.ip);
+        } catch (error) {
+        console.error(error);
+        }
+    }
+    
+    getIpClient();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

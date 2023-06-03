@@ -1,0 +1,33 @@
+@set('title', 'SPYBET - Recuperar Senha')
+@include('layouts/main')
+@include('icon')
+@entryPointStyles('recuperar-senha')
+
+<div class="conteiner-principal-recuperarSenha">
+    <div class="conteiner-secundario-recuperarSenha">
+      <p class="coloque-email">
+        Para recuperar a sua senha, digite o seu e-mail.
+      </p>
+
+      @include('partials/alert')
+      @include('partials/errors')
+
+      <form class="form-recuperar-senha" action="{{route('PasswordRecoveriesController.store')}}" method="POST">
+        {{ csrfField() }}
+
+        <div>
+          <div class="div-input-email">
+            <input id="email" name="email" type="email" autocomplete="email"  class="input-email-recuperacao" value="{{ flashMessages.get('email') || '' }}">
+          </div>
+        </div>
+
+        <div>
+          <button type="submit" class="button-submit-enviarLink">
+            Enviar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  @entryPointScripts('recuperar-senha')

@@ -1,0 +1,103 @@
+@set('title', 'SPYBET - Betbry Fruit')
+@section('content')
+@include('betbry')
+<script src="/socket.io/socket.io.js"></script>
+
+
+@entryPointStyles('betbry-fruit')
+<div class="menu-principal-tabela-fruit">
+    <div class="menu-secundario-tabela-fruit" >
+        <span class="plataformaBlaze"><a href="https://www.betbry.com/r/Q6lNJr" >Acessar: <img class="icon-plat-acessar" src="{{ asset ('assets/images/logograndeBetbry.png')}}"></a></span>
+        <p class="qt-jogos-p">Quantidade de jogos: <input type="number" class="qt-jogos-input" value="100"/> <button type="submit" class="button-form-fruit-qtdRodadas" ><i class="fa fa-check"></i></button></p>
+        <span class="msg-qt-jogos-input"></span>
+        <p class="vizualizar-padroes-salvos-p">Padrões Salvos <button class="vizualizar-padroes-salvos-button padrao-show notAutorization" style="display:none><i class="fa fa-eye"></i></button>
+
+        
+        
+    </div>
+    <div class="conteiner-principal-vizualizar-padroes-salvos notAutorization" style="display:none">
+        <span class="msg-qtd-de-padroes-salvos">
+            , você tem <span class="qtd-de-padroes-salvos"></span> padrão.
+            <p><span class="msg-de-compartilhamento"></span></p>
+        </span>
+        <div class="conteiner-secundario-vizualizar-padroes-salvos" >
+            
+            
+        </div>
+    </div>	
+    
+    <div class="conteiner-new-padroes notAutorization">
+        <button class="button-new-padroes">Novo padrão</button>
+         <div class="save-new-padroes" style="display:none">
+            <form action="" method="POST" id="form-new-padrao-betbry-fruit">
+            
+            </form>
+            
+         </div>
+        <div class="sugestao-conteiner-principal notAutorization" style="display:none">
+            <p class="sugestao-p">Sugestão inteligente - Possível sequencia</p>
+            <div class="sugestao">
+
+            </div>
+        </div>
+        <span class="carregando-new-conteiner" style="display:none"><h1 data-text="Carregando..." class="carregando-new">Carregando...</h1></span>
+        
+    </div>
+</div>      
+<div class="conteiner-principal-tabela-betbry">
+    <span class='statusFruitConcluido' style="display:none"></span>
+    <span class="statusFruit" style="display:none"></span>
+    <div class="estatistica-fruit" style="display:none">
+        <span>
+            Estatística Hoje: <span class="data-hoje"></span>
+        </span>
+        <div class="mini-cont-secundario-estatistica" >
+            <span class="qtd-fruit-hoje">
+                <p><img class="icon-plat1-acessar" src="{{ asset ('assets/images/pg.png')}}"></p>
+                <p class="qtd-fruit-hoje-p">2000</p>
+            </span>
+            <span class="qtd-fruit-hoje">
+                <p><img class="icon-plat1-acessar" src="{{ asset ('assets/images/nm.png')}}"></p>
+                <p class="qtd-fruit-hoje-p"></p>
+            </span>
+            <span class="qtd-fruit-hoje">
+                <p><img class="icon-plat1-acessar" src="{{ asset ('assets/images/ld.png')}}"></p>
+                <p class="qtd-fruit-hoje-p"></p>    
+            </span>
+            <span class="qtd-fruit-hoje">
+                <p><img class="icon-plat1-acessar" src="{{ asset ('assets/images/xy.png')}}"></p>
+                <p class="qtd-fruit-hoje-p">2000</p>
+            </span>
+            <span class="qtd-fruit-hoje">
+                <p><img class="icon-plat1-acessar" src="{{ asset ('assets/images/pt.png')}}"></p>
+                <p class="qtd-fruit-hoje-p"></p>
+            </span>
+            <span class="qtd-fruit-hoje">
+                <p><img class="icon-plat1-acessar" src="{{ asset ('assets/images/cm.png')}}"></p>
+                <p class="qtd-fruit-hoje-p"></p>    
+            </span>
+            <span class="qtd-fruit-hoje">
+                <p><img class="icon-plat1-acessar" src="{{ asset ('assets/images/zs.png')}}"></p>
+                <p class="qtd-fruit-hoje-p"></p>
+            </span>
+            <span class="qtd-fruit-hoje">
+                <p><img class="icon-plat1-acessar" src="{{ asset ('assets/images/xg.png')}}"></p>
+                <p class="qtd-fruit-hoje-p"></p>    
+            </span>
+            <span class="btn-focus" style="display:none">
+                <label class="cursor">
+                    <p>Focar!</p>
+                    <input type="checkbox" class="checkbox__hidden">
+                    <div class="round__bar">
+                        <div class="round__button"></div>
+                    </div>
+                </label>
+            </span>
+        </div>
+    </div>
+    <div  class="conteiner-secundario-tabela-betbry">
+
+    </div>
+</div>
+@endsection
+@entryPointScripts('betbry-fruit')

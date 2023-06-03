@@ -1,0 +1,34 @@
+@include('layouts/main')
+<script src="/socket.io/socket.io.js"></script>
+@entryPointStyles('home')
+@entryPointScripts('home')
+@section('content')
+<section class="Home">
+    <div class="conteiner-principal-menu">
+        <div class="conteiner-menu">
+            <ul class="menu-selecao-interno">
+                <li>
+                    <a href="/home/planovip/">
+                        <span class="plano-vip-span"><i class="fa fa-gem"></i> Plano VIP <i class="fa fa-gem"></i></span>
+                        
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('RoutesController.gerenciamento')}}">
+                        <span class="gerenciamento-span"><i class="fa fa-table-list"></i>  Gerenciamento</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('RoutesController.padroes')}}">
+                        <span class="padroes-span"><i class="fa fa-list"></i>  Padrões</span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+@endsection
+  

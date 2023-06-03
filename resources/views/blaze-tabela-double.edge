@@ -1,0 +1,85 @@
+@set('title', 'SPYBET - Blaze Double')
+@section('content')
+@include('blaze')
+<script src="/socket.io/socket.io.js"></script>
+
+
+@entryPointStyles('blaze-double')
+<div class="menu-principal-tabela-double">
+    <div class="menu-secundario-tabela-double" >
+        <span class="plataformaBlaze"><a href="https://www.blaze.com/r/Q6lNJr" >Acessar: <img class="icon-plat-acessar" src="{{ asset ('assets/images/logograndeBlaze.svg')}}"></a></span>
+        <p class="qt-jogos-p">Quantidade de jogos: <input type="number" class="qt-jogos-input" value="100"/> <button type="submit" class="button-form-double-qtdRodadas" ><i class="fa fa-check"></i></button></p>
+        <span class="msg-qt-jogos-input"></span>
+        <p class="vizualizar-padroes-salvos-p">Padrões Salvos <button class="vizualizar-padroes-salvos-button padrao-show notAutorization"><i class="fa fa-eye"></i></button>
+
+        
+        
+    </div>
+    <div class="conteiner-principal-vizualizar-padroes-salvos notAutorization" style="display:none">
+        <span class="msg-qtd-de-padroes-salvos">
+            {{auth.user.name}}, você tem <span class="qtd-de-padroes-salvos"></span> padrão.
+            <p><span class="msg-de-compartilhamento"></span></p>
+        </span>
+        <div class="conteiner-secundario-vizualizar-padroes-salvos" >
+            
+            
+        </div>
+    </div>	
+    
+    <div class="conteiner-new-padroes notAutorization">
+        <button class="button-new-padroes">Novo padrão</button>
+         <div class="save-new-padroes" style="display:none">
+            <form action="" method="POST" id="form-new-padrao-blaze-double">
+            
+            </form>
+            
+         </div>
+        <div class="sugestao-conteiner-principal notAutorization" style="display:none">
+            <p class="sugestao-p">Sugestão inteligente - Possível sequencia</p>
+            <div class="sugestao">
+
+            </div>
+        </div>
+        <span class="carregando-new-conteiner" style="display:none"><h1 data-text="Carregando..." class="carregando-new">Carregando...</h1></span>
+        
+    </div>
+</div>      
+<div class="conteiner-principal-tabela-blaze">
+    <span class='statusDoubleConcluido' style="display:none"></span>
+    <span class="statusDouble" style="display:none"></span>
+    <div class="estatistica-double">
+        <span>
+            Estatística Hoje: <span class="data-hoje"></span>
+        </span>
+        <div class="mini-cont-secundario-estatistica">
+            <span class="qtd-white-hoje">
+                <p>BRANCO</p>
+                <p class="qtd-white-hoje-p"></p>
+            </span>
+            <span class="qtd-red-hoje">
+                <p>VERMELHO</p>
+                <p class="qtd-red-hoje-p"></p>
+            </span>
+            <span class="qtd-black-hoje">
+                <p>PRETO</p>
+                <p class="qtd-black-hoje-p"></p>    
+            </span>
+            <span class="btn-focus" style="display:none">
+                <label class="cursor">
+                    <p>Focar!</p>
+                    <input type="checkbox" class="checkbox__hidden">
+                    <div class="round__bar">
+                        <div class="round__button"></div>
+                    </div>
+                </label>
+            </span>
+        </div>
+    </div>
+    <div  class="conteiner-secundario-tabela-blaze">
+
+
+
+    </div>
+</div>
+@endsection
+@entryPointScripts('blaze-double')

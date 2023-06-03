@@ -1,0 +1,17 @@
+@if (flashMessages.has('alert'))
+  @if(flashMessages.get('alert.type') === 'success')
+    <div class="alert alert-success">
+      {{ flashMessages.get('alert.message') }}
+    </div>
+  @elseif(flashMessages.get('alert.type') === 'error')
+    <div class="alert alert-error">
+      {{ flashMessages.get('alert.message') }}
+    </div>
+  @elseif(flashMessages.get('alert.type') === 'info')
+    <div class="alert alert-success">
+      {{ flashMessages.get('alert.message') }}
+    </div>
+  @elseif(flashMessages.get('alert.type') === 'successRegister')
+    <span class="alert alert-success">{{ flashMessages.get('alert.message') }}<a href="/auth/verification/new"> reenviar.</a></span>
+  @endif
+@endif

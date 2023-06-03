@@ -1,0 +1,190 @@
+@include('dashboard/dashboardMenu')
+@entryPointScripts('dashboardMain')
+@entryPointStyles('dashboardMain')
+<script src="/socket.io/socket.io.js"></script>
+<div class="conteiner-principal-dashboardMain">
+    <div class="div-nome">
+        <p><span class="p-nome">{{nome}}:</span> <span class="p-nivelacesso">{{nivelacesso}}</span>   <button class="logout" type="submit"><a href="/dashboard/admin/auth/login"><i class="fa fa-power-off"></i></a></button></p>
+    </div>
+    <div class="conteiner-secundario-dashboardMain">
+        <div class="users users-registrados">
+            <div class="div-users">
+                <p class="p-users">Usuários Registrados</p>
+                <p class="p-users-valor">{{userstotal}}</p>
+            </div>
+        </div>
+        <div class="users users-plano-free">
+            <div class="div-users">
+                <p class="p-users">Usuários Plano Free</p>
+                <p class="p-users-valor">{{usersplanofree}}</p>
+            </div>
+        </div>
+        <div class="users users-plano-trimestral">
+            <div class="div-users">
+                <p class="p-users">Usuários Plano Trimestral</p>
+                <p class="p-users-valor">{{usersplanotrimestral}}</p>
+            </div>
+        </div>
+        <div class="users users-plano-bimestral">
+            <div class="div-users">
+                <p class="p-users">Usuários Plano Bimestral</p>
+                <p class="p-users-valor">{{usersplanobimestral}}</p>
+            </div>
+        </div>
+        <div class="users users-plano-mensal">
+            <div class="div-users">
+                <p class="p-users">Usuários Plano Mensal</p>
+                <p class="p-users-valor">{{usersplanomensal}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="conteiner-principal-search">
+        <div class="conteiner-secundario-search" style="display:none">
+            <div class="div-search">
+                <button class="button-search confirmar-pagamento">Confirmar pagamento</button>
+            </div>
+            <div class="div-search">
+                <button class="button-search adicionar-funcionario">Adicionar funcionario</button>
+            </div>
+
+            <div class="div-search">
+                <button class="button-search adicionar-funcionario">Editar funcionario</button>
+            </div>
+            <div class="div-search">
+                <button class="button-search excluir-funcionario">Excluir funcionario</button>
+            </div>
+            <div class="div-search">
+                <button class="button-search confir-saque">Confirmar Saques</button>
+            </div>
+        </div>
+    </div>
+    <div class="conteiner-principal-resultado">
+        <div class="conteiner-principal-confirm-pagamento" style="display:none">
+            <div class="conteiner-secundario-confirm-pagamento">
+                
+                <div class="email-de-busca">
+                    <label for="emailUser">E-mail do Usuario</label>
+                    <input type="text" class="emailUser" name="emailUser" placeholder="">
+                    <span class="span-button-submit-enviar-email">
+                        <button class="button-submit-Buscar-email" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </span>
+                </div>
+                
+            </div>
+            <div class="conteiner-de-resposta-serv">
+                <span class="msg-confirmacao-de-pagamento"></span>
+                    <div class="conteiner-secundario-resultado-form">
+                        <div class="div-resultado">
+                            <label class="p-resultado">Nome: </label>
+                            <input type="text" class="nomeUser" name="nomeUser" value="" readonly>
+                        </div>
+                        <div class="div-resultado">
+                            <label class="p-resultado">E-mail: </label>
+                            <input type="text" class="emailUser" name="emailUser" value="" readonly>
+                        </div>
+                        <div class="div-resultado">
+                            <label class="p-resultado">Plano: </label>
+                            <select name="planoUser" id="planoUser">
+                                <option value="atual" class="planoUser"></option>
+                                <option value="mensal">Mensal</option>
+                                <option value="bimestral">Bimestral</option>
+                                <option value="trimestral">Trimestral</option>
+                            </select>
+                        </div>
+                    </div>
+                
+    
+                <div class="buttons-confirmar-pagamento">
+                    <span class="buttons-confirmar-pagamento-span">
+                        <button class="button-confirmar-pagamento">Confirmar pagamento</button>
+                    </span>
+                    <span class="button-fazer-nova-busca-span">
+                        <button class="button-fazer-nova-busca">Nova busca</button>
+                    </span>
+    
+                </div>
+            </div>
+        </div>
+        <div class="conteiner-principal-adicionar-funcionario" style="display:none">
+            <div class="conteiner-principal-buscar-funcionario">
+                <div class="email-de-busca">
+                    <label for="emailUser">E-mail do funcionario</label>
+                    <input type="text" class="emailUser" id="emailFuncionario" name="emailUser" placeholder="">
+                    <span class="span-button-submit-enviar-email">
+                        <button class="button-submit-Buscar-email-funcionario" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </span>
+                </div>
+                
+                
+            </div>
+            <span class="msg-confirmacao-de-pagamento"></span>
+            <div class="conteiner-secundario-adicionar-funcionario">
+                <div class="div-mini-conteiner">
+                    <div class="div-adicionar-funcionario">
+                        <label for="niveldeacesso">Nivel de Acesso</label>
+                        <input type="text" class="niveldeacesso" placeholder="">
+                    </div>
+                    <div class="div-adicionar-funcionario">
+                        <label for="codigodeacesso">Codigo Acesso</label>
+                        <input type="text" class="codigodeacesso" placeholder="">
+                    </div>
+                    <div class="div-adicionar-funcionario">
+                        <label for="email">E-mail</label>
+                        <input type="text" class="email" placeholder="">
+                    </div>
+                    <div class="div-adicionar-funcionario">
+                        <label for="cpf">CPF</label>
+                        <input type="text" class="cpf" placeholder="">
+                    </div>
+                    <div class="div-adicionar-funcionario">
+                        <label for="emailSpybet">E-mail SPYBET</label>
+                        <input type="text" class="emailSpybet" placeholder="">
+                    </div>
+                    <div class="div-adicionar-funcionario">
+                        <label for="senhaAcessoEmailSpybet">Senha SPYBET</label>
+                        <input type="text" class="senhaAcessoEmailSpybet" placeholder="">
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="conteiner-button-enviar">
+                <button class="button-enviar-adicionar-funcionario">Cadastrar</button>
+            </div>
+            
+        </div>
+        <div class="conteiner-principal-excluir-funcionario" style="display:none">
+            <div class="conteiner-secundario-excluir-funcionario">
+                <div class="conteiner-user">
+                    <div class="conteiner-secundario-user">
+                        <span class="div-user">
+                            <p class="p-user">E-mail</p>
+                        </span>
+                    </div>
+                    <div class="conteiner-secundario-user">
+                        <div class="div-excluir-funcionario">
+                            <input type="text" id="emailFuncionarioExcluir" name="email" placeholder="">
+                        </div>
+                        <button class="button-excluir-funcionario"><span class="decoracao-icones"><a href=""><i class="fa fa-trash-can"></i></a></span></button>
+                        
+                    </div>
+                    <span class="msg-confirmacao-de-pagamento"></span>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="conteiner-principal-transc" style="display:none">
+            {{ csrfField() }}     
+            <div class="conteiner-secundario-transc1">
+                <div class="idc">
+                    <span>Nome do titular</span>
+                    <span>Banco</span>
+                    <span>Tipo Chave</span>
+                    <span>Chave PIX</span>
+                    <span>Valor</span>
+                </div>
+            </div>
+        </div>	
+    </div>
+</div>

@@ -1,0 +1,379 @@
+{
+  "entrypoints": {
+    "app": {
+      "js": [
+        "/assets/app.55ba791f.js"
+      ]
+    },
+    "mines": {
+      "css": [
+        "/assets/mines.730fd4fc.css"
+      ],
+      "js": [
+        "/assets/mines.2cbea03a.js"
+      ]
+    },
+    "login": {
+      "css": [
+        "/assets/login.6de4029d.css"
+      ],
+      "js": [
+        "/assets/login.eef67ec4.js"
+      ]
+    },
+    "cadastro": {
+      "css": [
+        "/assets/cadastro.401ae3e3.css"
+      ],
+      "js": [
+        "/assets/cadastro.31d6cfe0.js"
+      ]
+    },
+    "scripts": {
+      "css": [
+        "/assets/scripts.d5956fc6.css"
+      ],
+      "js": [
+        "/assets/scripts.01b9efc5.js"
+      ]
+    },
+    "jquery": {
+      "js": [
+        "/assets/jquery.502637dd.js"
+      ]
+    },
+    "all": {
+      "js": [
+        "/assets/all.f39e3ab3.js"
+      ]
+    },
+    "home": {
+      "css": [
+        "/assets/home.7bc2e493.css"
+      ],
+      "js": [
+        "/assets/home.a9f2b3f9.js"
+      ]
+    },
+    "home-gerenciamento-menu": {
+      "css": [
+        "/assets/home-gerenciamento-menu.59e82050.css"
+      ],
+      "js": [
+        "/assets/home-gerenciamento-menu.a336d088.js"
+      ]
+    },
+    "home-gerenciamento-tabela": {
+      "css": [
+        "/assets/home-gerenciamento-tabela.bbc1c422.css"
+      ],
+      "js": [
+        "/assets/home-gerenciamento-tabela.61dfd8b9.js"
+      ]
+    },
+    "home-gerenciamento-tabelapreenchida": {
+      "css": [
+        "/assets/home-gerenciamento-tabelapreenchida.0ea65b6b.css"
+      ],
+      "js": [
+        "/assets/home-gerenciamento-tabelapreenchida.02935907.js"
+      ]
+    },
+    "home-gerenciamento-tabelascriadas": {
+      "css": [
+        "/assets/home-gerenciamento-tabelascriadas.04041ef9.css"
+      ],
+      "js": [
+        "/assets/home-gerenciamento-tabelascriadas.31d6cfe0.js"
+      ]
+    },
+    "home-planovip": {
+      "css": [
+        "/assets/home-planovip.eb39db65.css"
+      ],
+      "js": [
+        "/assets/home-planovip.e6055a5b.js"
+      ]
+    },
+    "home-padroes": {
+      "css": [
+        "/assets/home-padroes.92beafe2.css"
+      ],
+      "js": [
+        "/assets/home-padroes.02a63afe.js"
+      ]
+    },
+    "home-gerenciamento-sobre": {
+      "css": [
+        "/assets/home-gerenciamento-sobre.e17e37a0.css"
+      ],
+      "js": [
+        "/assets/home-gerenciamento-sobre.600c3db9.js"
+      ]
+    },
+    "home-duvidas": {
+      "css": [
+        "/assets/home-duvidas.f72cc918.css"
+      ],
+      "js": [
+        "/assets/home-duvidas.985ec007.js"
+      ]
+    },
+    "blaze": {
+      "css": [
+        "/assets/blaze.3bf9aff9.css"
+      ],
+      "js": [
+        "/assets/blaze.66eb05c6.js"
+      ]
+    },
+    "blaze-crash": {
+      "css": [
+        "/assets/blaze-crash.086bebc3.css"
+      ],
+      "js": [
+        "/assets/blaze-crash.e9bb5212.js"
+      ]
+    },
+    "blaze-double": {
+      "css": [
+        "/assets/blaze-double.71c5add6.css"
+      ],
+      "js": [
+        "/assets/blaze-double.633c7101.js"
+      ]
+    },
+    "gluck": {
+      "css": [
+        "/assets/gluck.d9c342c3.css"
+      ],
+      "js": [
+        "/assets/gluck.6e0452f9.js"
+      ]
+    },
+    "gluck-crash": {
+      "css": [
+        "/assets/gluck-crash.5933f672.css"
+      ],
+      "js": [
+        "/assets/gluck-crash.9f343c74.js"
+      ]
+    },
+    "gluck-double": {
+      "css": [
+        "/assets/gluck-double.02c8e556.css"
+      ],
+      "js": [
+        "/assets/gluck-double.8ff30f9a.js"
+      ]
+    },
+    "betbry": {
+      "css": [
+        "/assets/betbry.466c0356.css"
+      ],
+      "js": [
+        "/assets/betbry.ec7a6a25.js"
+      ]
+    },
+    "betbry-crash": {
+      "css": [
+        "/assets/betbry-crash.48ca5b9c.css"
+      ],
+      "js": [
+        "/assets/betbry-crash.9925b644.js"
+      ]
+    },
+    "betbry-double": {
+      "css": [
+        "/assets/betbry-double.c59d7060.css"
+      ],
+      "js": [
+        "/assets/betbry-double.b082d323.js"
+      ]
+    },
+    "betbry-fruit": {
+      "css": [
+        "/assets/betbry-fruit.14e3ea73.css"
+      ],
+      "js": [
+        "/assets/betbry-fruit.5c42a50d.js"
+      ]
+    },
+    "beette": {
+      "css": [
+        "/assets/beette.c9463006.css"
+      ],
+      "js": [
+        "/assets/beette.8c0f6f7d.js"
+      ]
+    },
+    "beette-crash": {
+      "css": [
+        "/assets/beette-crash.309e0e3a.css"
+      ],
+      "js": [
+        "/assets/beette-crash.01fdf09a.js"
+      ]
+    },
+    "beette-double": {
+      "css": [
+        "/assets/beette-double.90dda387.css"
+      ],
+      "js": [
+        "/assets/beette-double.d3ab420a.js"
+      ]
+    },
+    "beyond": {
+      "css": [
+        "/assets/beyond.3bf9aff9.css"
+      ],
+      "js": [
+        "/assets/beyond.e519cec8.js"
+      ]
+    },
+    "beyond-crash": {
+      "css": [
+        "/assets/beyond-crash.6609732a.css"
+      ],
+      "js": [
+        "/assets/beyond-crash.3e09dd86.js"
+      ]
+    },
+    "beyond-double": {
+      "css": [
+        "/assets/beyond-double.002f60b6.css"
+      ],
+      "js": [
+        "/assets/beyond-double.e6319bfa.js"
+      ]
+    },
+    "smash": {
+      "css": [
+        "/assets/smash.38ad7489.css"
+      ],
+      "js": [
+        "/assets/smash.186a63b8.js"
+      ]
+    },
+    "smash-crash": {
+      "css": [
+        "/assets/smash-crash.4be0140d.css"
+      ],
+      "js": [
+        "/assets/smash-crash.8bfb3301.js"
+      ]
+    },
+    "smash-double": {
+      "css": [
+        "/assets/smash-double.493ce774.css"
+      ],
+      "js": [
+        "/assets/smash-double.3b821295.js"
+      ]
+    },
+    "userPerfils": {
+      "css": [
+        "/assets/userPerfils.979c0dd8.css"
+      ],
+      "js": [
+        "/assets/userPerfils.13f269be.js"
+      ]
+    },
+    "wallet": {
+      "css": [
+        "/assets/wallet.73dcae51.css"
+      ],
+      "js": [
+        "/assets/wallet.87023d3f.js"
+      ]
+    },
+    "recuperar-senha": {
+      "css": [
+        "/assets/recuperar-senha.0d4ba90f.css"
+      ],
+      "js": [
+        "/assets/recuperar-senha.31d6cfe0.js"
+      ]
+    },
+    "reset-password": {
+      "css": [
+        "/assets/reset-password.2b0894b5.css"
+      ],
+      "js": [
+        "/assets/reset-password.31d6cfe0.js"
+      ]
+    },
+    "payment": {
+      "css": [
+        "/assets/payment.319e05d8.css"
+      ],
+      "js": [
+        "/assets/payment.31d6cfe0.js"
+      ]
+    },
+    "dashboardLogin": {
+      "css": [
+        "/assets/dashboardLogin.2370eabf.css"
+      ],
+      "js": [
+        "/assets/dashboardLogin.1e539e53.js"
+      ]
+    },
+    "dashboardMain": {
+      "css": [
+        "/assets/dashboardMain.6913a5a9.css"
+      ],
+      "js": [
+        "/assets/dashboardMain.70fe1c57.js"
+      ]
+    },
+    "dashboardMenu": {
+      "css": [
+        "/assets/dashboardMenu.01e8fc5a.css"
+      ],
+      "js": [
+        "/assets/dashboardMenu.985ec007.js"
+      ]
+    },
+    "termoseprivacidade": {
+      "css": [
+        "/assets/termoseprivacidade.47db99e0.css"
+      ],
+      "js": [
+        "/assets/termoseprivacidade.31d6cfe0.js"
+      ]
+    },
+    "apresentacao": {
+      "css": [
+        "/assets/apresentacao.e2572795.css"
+      ],
+      "js": [
+        "/assets/apresentacao.87aa03a6.js"
+      ]
+    },
+    "pre-checkout": {
+      "css": [
+        "/assets/pre-checkout.30ac4537.css"
+      ],
+      "js": [
+        "/assets/pre-checkout.af87f300.js"
+      ]
+    },
+    "checkout": {
+      "css": [
+        "/assets/checkout.5b7507a8.css"
+      ],
+      "js": [
+        "/assets/checkout.7709f341.js"
+      ]
+    },
+    "checkoutPix": {
+      "css": [
+        "/assets/checkoutPix.985731d2.css"
+      ],
+      "js": [
+        "/assets/checkoutPix.1016bdbe.js"
+      ]
+    }
+  }
+}

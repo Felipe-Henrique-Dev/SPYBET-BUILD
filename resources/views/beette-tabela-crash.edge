@@ -1,0 +1,65 @@
+@set('title', 'SPYBET - Beette Crash')
+@section('content')
+@include('beette')
+
+<script src="/socket.io/socket.io.js"></script>
+@entryPointStyles('beette-crash')
+
+<div class="menu-principal-tabela-crash">
+    <div class="menu-secundario-tabela-crash" >
+        <span class="plataformaBeette"><a href="https://beette.com/r/h8k8q4wn4g31vi0t" >Acessar: <img class="icon-plat-acessar" src="{{ asset ('assets/images/logograndeBeette.png')}}"></a></span>
+        <p class="qt-jogos-p">Quantidade de jogos: <input type="number" class="qt-jogos-input" value="100"/> <button type="submit" class="button-form-crash-qtdRodadas" ><i class="fa fa-check"></i></button></p>
+        <span class="msg-qt-jogos-input"></span>
+        <p class="vizualizar-padroes-salvos-p">Padrões Salvos <button class="vizualizar-padroes-salvos-button padrao-show notAutorization"><i class="fa fa-eye"></i></button>
+
+        
+    </div>	
+
+    <div class="conteiner-principal-vizualizar-padroes-salvos notAutorization" style="display:none">
+        <span class="msg-qtd-de-padroes-salvos">
+            {{auth.user.name}}, você tem <span class="qtd-de-padroes-salvos"></span> padrão.
+            <p><span class="msg-de-compartilhamento"></span></p>
+        </span>
+        <div class="conteiner-secundario-vizualizar-padroes-salvos" >
+            
+            
+        </div>
+    </div>
+    
+    <div class="conteiner-new-padroes notAutorization">
+        <button class="button-new-padroes">Novo padrão</button>
+         <div class="save-new-padroes" hidden>
+            <form action="" method="POST" id="form-new-padrao-beette-crash">
+            
+            </form>
+            
+         </div>
+    </div> 
+        <div class="sugestao-conteiner-principal notAutorization" style="display:none">
+            <p class="sugestao-p">Sugestão inteligente - Possível sequencia</p>
+            <div class="sugestao">
+
+            </div>
+            
+        </div>
+        <span class="carregando-new-conteiner" style="display:none"><h1 data-text="Carregando..." class="carregando-new">Carregando...</h1></span>
+
+    </div> 
+</div>  
+
+<div class="conteiner-principal-tabela-beette">
+    <span class='statusCrashConcluido' style="display:none"></span>
+    <span class="statusCrash" style="display:none"></span>
+    <span class="statusCrash-new-conteiner-principal">
+        <span class="statusCrash-new-conteiner" ><h4 data-statusCrash="Novo" class="statusCrash-new"></h4></span>
+    </span>
+    
+    <div  class="conteiner-secundario-tabela-beette">
+
+
+
+    </div>
+</div>
+@endsection
+@entryPointScripts('beette-crash')
+

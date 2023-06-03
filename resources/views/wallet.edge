@@ -1,0 +1,177 @@
+@set('title', 'SPYBET - Carteira')
+@include('layouts/main')
+@entryPointStyles('wallet')
+@entryPointScripts('wallet')
+
+
+<section>
+    <input type="hidden" name="" value="{{conteinernewafiliado}}" id="cod-afiliado">
+    {{ csrfField() }}     
+
+    <div class="loading" >
+        <svg x="0px" y="0px" width="459.782" height="459.156" viewBox="0 0 459.782 459.156">
+            <path id="LOADING..." class="cls-1" d="M190,17c0.471-.2.97-0.413,1.4-0.586C200.642,12.7,219.333,8.974,234.726,19c21,13.676,27.246,49.015,8.75,72-17.762,22.074-51.4,22.934-70.006,5-13.3-12.821-16.454-31.987-12.64-47A50.53,50.53,0,0,1,173,27,77.439,77.439,0,0,1,190,17ZM139.307,122c6.226,13.747,4.578,30.958-4.849,43-16,20.433-50.814,21.328-68.458,3a42.715,42.715,0,0,1,13-68C99.969,90.464,129.154,99.58,139.307,122ZM62.078,222C74.929,222.214,83.8,226.024,90,231a41.962,41.962,0,0,1,15.148,37C103.162,286.25,90,298.163,77.74,303c-9.291,3.666-24.375,5.809-38.175-3-8.072-5.152-14.238-13.6-17.62-24-3.6-11.073-2.877-19.656-.979-26a39.562,39.562,0,0,1,16.64-22C42.314,225.02,50.574,221.809,62.078,222Zm79.757,128c6.675,8.105,8.284,18.441,7.876,26a41.205,41.205,0,0,1-8.86,23,40.517,40.517,0,0,1-19.689,14,39.472,39.472,0,0,1-36.425-7,40.271,40.271,0,0,1-14.767-28A41.532,41.532,0,0,1,85,343C107.424,332.049,130.607,336.367,141.835,350Zm99.575,61a35.21,35.21,0,0,1,7.95,27c-2.114,16.346-16.024,30.058-32.794,32-19.729,2.285-38.412-12.306-41.566-31a36.134,36.134,0,0,1,12-33C202.845,392.493,228.747,396.06,241.41,411Zm110.445,24A31.444,31.444,0,0,1,342,458c-12.039,11.174-32.152,11.09-45,1a33.921,33.921,0,0,1-13.041-28A32.366,32.366,0,0,1,318,400C335.879,400.817,351.752,417.248,351.855,435ZM424.5,374c3.218,15.873-6.864,31.633-20.972,36-11.335,3.509-21.541-1.164-26.964-5a32.617,32.617,0,0,1-11.984-16c-2.242-6.529-2.692-14.131,0-21,4.673-11.926,17.441-19.6,30.419-19C409,349.641,421.631,359.842,424.5,374Zm17.975-87c12.4,0.738,20.471,9.806,23.92,17a28.119,28.119,0,0,1,1.993,20,27.132,27.132,0,0,1-17.94,18c-13.525,4.229-24.377-3.543-28.9-8-3.713-3.657-9.937-11.681-8.97-22C413.888,298.021,427.8,286.127,442.476,287Zm6.882-71c11.2-1.295,19.176,5.525,22.791,10a25.722,25.722,0,0,1,5.946,18A25.011,25.011,0,0,1,466.2,263a25.531,25.531,0,0,1-31.265-40A24.964,24.964,0,0,1,449.358,216ZM435.78,153c4.508-.259,14.1.5,20.274,9a23.189,23.189,0,0,1,2.9,22,22.266,22.266,0,0,1-12.1,12c-10.376,4.334-24.428.621-30.377-10a22.62,22.62,0,0,1-1.52-19C419.191,156.043,430.173,153.322,435.78,153Zm-33.436-46c4.679-1.182,10.62-1.126,15.7,2a20.217,20.217,0,0,1,8.834,13c0.83,3.835,1.183,10.531-2.945,16-3.521,4.665-9.113,6.569-13.741,7-6.034.562-15.227-1.323-19.631-9-1.647-2.871-2.789-6.913-1.963-13a24.668,24.668,0,0,1,4.4-11A22.228,22.228,0,0,1,402.344,107ZM364.606,73c5.108,0.069,13.89,2.439,16.947,11,2.333,6.532.393,14.754-5.981,19-7.013,4.671-16.112,2.289-20.935-3-4.213-4.621-4.411-10.618-3.987-14A19.255,19.255,0,0,1,356,75,18.887,18.887,0,0,1,364.606,73ZM166.577,264.079h18.751v-3.651h-14.4V230.377h-4.35v33.7Zm35.3-34.252c-9,0-15.651,7-15.651,17.7,0,10.2,6.25,17.1,15.151,17.1,8.6,0,15.651-6.151,15.651-17.751C217.029,236.877,211.078,229.827,201.878,229.827Zm-0.2,3.55c7.25,0,10.751,7,10.751,13.7,0,7.65-3.9,14-10.8,14-6.851,0-10.751-6.451-10.751-13.651C190.877,240.027,194.477,233.377,201.678,233.377Zm37.7,20.1,3.6,10.6h4.65l-11.5-33.7h-5.25l-11.451,33.7h4.5l3.5-10.6h11.95Zm-11.05-3.4,3.3-9.751c0.65-2.05,1.2-4.1,1.7-6.1h0.1c0.5,1.95,1,3.95,1.75,6.15l3.3,9.7h-10.15Zm24.249,13.9a70.231,70.231,0,0,0,7.9.4c6.55,0,11.75-1.7,14.9-4.851,3.15-3.1,4.85-7.6,4.85-13.1,0-5.451-1.75-9.351-4.75-12.1-2.951-2.75-7.4-4.2-13.651-4.2a62.322,62.322,0,0,0-9.251.7v33.152Zm4.35-29.952a24.735,24.735,0,0,1,5.1-.45c9.2,0,13.7,5.05,13.651,13,0,9.1-5.051,14.3-14.351,14.3a27.49,27.49,0,0,1-4.4-.25v-26.6Zm28.949-3.65v33.7h4.351v-33.7h-4.351Zm16.051,33.7v-14.4c0-5.6-.1-9.651-0.35-13.9l0.15-.05a107.078,107.078,0,0,0,6.3,11.251l10.7,17.1h4.4v-33.7h-4.1v14.1c0,5.25.1,9.35,0.5,13.85l-0.1.05a95.414,95.414,0,0,0-6.051-10.95l-10.8-17.051h-4.751v33.7h4.1Zm54.45-17.7h-11.1v3.5h6.85v10.05a14.182,14.182,0,0,1-5.8.9c-7.851,0-13-5.051-13-13.6,0-8.451,5.35-13.551,13.551-13.551a17.468,17.468,0,0,1,7.45,1.45l1.05-3.55a20.835,20.835,0,0,0-8.4-1.55c-11.3,0-18.2,7.35-18.251,17.4,0,5.25,1.8,9.75,4.7,12.55,3.3,3.151,7.5,4.451,12.6,4.451a31.4,31.4,0,0,0,10.35-1.85v-16.2Zm8.4,18.251a3.156,3.156,0,1,0-2.95-3.15A2.928,2.928,0,0,0,364.776,264.629Zm10.349,0a3.156,3.156,0,1,0-2.95-3.15A2.928,2.928,0,0,0,375.125,264.629Zm10.349,0a3.156,3.156,0,1,0-2.95-3.15A2.928,2.928,0,0,0,385.474,264.629Z" transform="translate(-18.906 -12.031)"/>
+        </svg>
+    </div>
+    <div class="conteiner-principal-wallet" style="display:none">
+        
+
+        <div class="conteiner-new-afiliado">
+            <h3 class="title-new-afiliado">Olá {{auth.user.name}}, seja bem vindo a sua carteira!</h3>
+            <h4 class="sub-title">Aqui você tem acesso a todas transacões e a valores disponiveis</h4>
+            <p>Para acessá-la basta clicar no icone <span><i class="fa-solid fa-right-long"></i></span> <span><i class="fa-solid fa-user"></i> </span><span><i class="fa-solid fa-right-long"></i></span> Carteira</p>
+            <p>Para se registrar como nosso afiliado vamos precisar que preencha o formulario abaixo:</p>
+            <p> São dados complementares aos que você já preencheu no cadastro, e que nos ajudarão a identificar você como nosso afiliado.</p>
+            <div class="cont-form">
+                <h5>Abaixo informe os dados da sua conta para saque,todos os saques são enviados via PIX.</h5>
+                <form>
+                
+                    <label for="CPF">CPF do titular</label>
+                    <input type="text" name="CPF" id="form-new-afiliado__cpf" maxlength="14" onkeypress="mascarar()">
+                    <p class="msg-error msg-cpf" style="display:none">CPF já cadastrado</p>
+                    <label for="tipo-chave-pix">Escolha qual chave PIX:</label>
+                    <select name="tipo-chave-pix" id="form-new-afiliado__tipochavepix">
+                        <option value="" selected>Seleceione</option>
+                        <option value="CPF">CPF</option>
+                        <option value="Celular">Celular</option>
+                        <option value="E-mail">E-mail</option>
+                        <option value="Chave aleatória">Chave aleatória</option>
+                    </select>
+                    <p class="msg-error msg-chave" style="display:none">Escolha uma chave PIX</p>
+                    <label for="chave-pix">Chave PIX</label>
+                    <input type="text" name="chave-pix" id="form-new-afiliado__chavepix">
+
+                    <label for="nome-banco">Nome do banco</label>
+                    <input type="text" name="nome-banco" id="form-new-afiliado__banco">
+
+                    <label for="titular">Nome do Titular</label>
+                    <input type="text" name="titular" id="form-new-afiliado__nometitular">
+
+                    <button id="form-new-afiliado__submit" type="submit" class="btn btn-new-afilido">GERAR MEU LINK</button>
+                    <p class="confiraOsDados"><span><i class="fa-solid fa-triangle-exclamation"></i></span><span> Confira os dados! </span><span><i class="fa-solid fa-triangle-exclamation"></i></span></p>
+                    <p class="msg-sucess msg-sucess-new-afiliado" style="display:none">Dados cadastrados com sucesso!</p>
+
+                </form>
+            </div>
+
+        </div>
+        <div class="conteiner-principal-transacao">
+            <div class="conteiner-saldos">
+                <h1>CARTEIRA</h1>
+                <div class="cont-valor">
+                    <h4>Saldo disponivel: <span class="ct valor-hide">{{carteira}}</span>
+                        <button class="Btn btn-show" ><i class="fa-solid fa-eye"></i></button>
+                        <button class="Btn btn-hide" style="display:none"><i class="fa-solid fa-eye-slash"></i></button>
+                    </h4>
+                </div>
+                <div class="cont-saque">
+                    <button class="btn btn-saque">Solicitar saque <i class="fa-solid fa-money-bill-transfer"></i></button>
+                    <p><i class="fa-solid fa-triangle-exclamation"></i> Envio em até 24 hrs</p>
+                    <p class="msg-saque" style="display:none"></p>
+                </div>
+            </div>
+        </div>
+        <div class="conteiner-principal-transacao">
+            <div class="conteiner-statistica-afiliado">
+                <h1>ESTATÍSTICAS DE INDICAÇÕES</h1>
+                <div class="mini-conteiner">
+                    <span class="estatic afiliado-total">
+                        <h4>TOTAL DE INDICAÇÕES</h4>
+                        <h3 class="ct valor-hide">{{afiliacaototal}}</h3>
+                    </span>
+                    <span class="estatic afiliado-mensal">
+                        <h4>PLAN.MENSAL</h4>
+                        <h3 class="ct valor-hide">{{afiliacaomensal}}</h3>
+                    </span>
+                    <span class="estatic afiliado-bimestral">
+                        <h4>PLAN.BIMESTRAL</h4>
+                        <h3 class="ct valor-hide">{{afiliacaobimestral}}</h3>
+                    </span>
+                    <span class="estatic afiliado-trimestral">
+                        <h4>PLAN.TRIMESTRAL</h4>
+                        <h3 class="ct valor-hide">{{afiliacaotrimestral}}</h3>
+                    </span>
+                </div>
+                <span class="link-de-afiliado"><h3>SEU LINK:</h3><input class="link-de-afiliado-input" type="text" value="{{linkafiliado}}" disabled></span>
+            </div>
+        </div>
+        <div class="conteiner-principal-transacao">
+            <div class="conteiner-trasacoes">
+                <h1>TRANSAÇÕES</h1>
+
+                <div class="idc">
+                    <span>ID</span>
+                    <span>Tipo</span>
+                    <span>Data</span>
+                    <span>Valor</span>
+                    <span>Status</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    
+</section>
+<span class="footer---" style="display:none">
+    @include('footer')
+</span>
+
+<script>
+            function mascaraTelefone(event) {
+                let tecla = event.key;
+                let telefone = event.target.value.replace(/\D+/g, "");
+            
+                if (/^[0-9]$/i.test(tecla)) {
+                    telefone = telefone + tecla;
+                    let tamanho = telefone.length;
+            
+                    if (tamanho >= 12) {
+                        return false;
+                    }
+                    
+                    if (tamanho > 10) {
+                        telefone = telefone.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
+                    } else if (tamanho > 5) {
+                        telefone = telefone.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
+                    } else if (tamanho > 2) {
+                        telefone = telefone.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
+                    } else {
+                        telefone = telefone.replace(/^(\d*)/, "($1");
+                    }
+            
+                    event.target.value = telefone;
+                }
+            
+                if (!["Backspace", "Delete"].includes(tecla)) {
+                    return false;
+                }
+            }
+            function mascarar() {
+                let inputCpf = document.getElementById('form-new-afiliado__cpf').value;
+                if (inputCpf.length == 3) {
+                    document.getElementById('form-new-afiliado__cpf').value = inputCpf + '.';
+                } else if (inputCpf.length == 7) {
+                    document.getElementById('form-new-afiliado__cpf').value = inputCpf + '.';
+                } else if (inputCpf.length == 11) {
+                    document.getElementById('form-new-afiliado__cpf').value = inputCpf + '-';
+                }
+            }
+
+            function valida() {
+                let minhaArray = ['01', '000.000.000-00', '244466666'];
+                let inputCpf = document.getElementById('form-new-afiliado__cpf').value;
+                let inputPass = document.getElementById('inputSenha').value;
+
+                if (inputCpf == minhaArray[1] && inputPass == minhaArray[2]) {
+                    document.getElementById('notification').innerHTML = "<br><a style='color: green'>Login realizado com sucesso!</a>"
+                    sleep(2000)
+                    document.getElementById('notification').innerHTML = '';
+                } else {
+                    document.getElementById('notification').innerHTML = "<br><a style='color: red'>Login mal sucedido!</a>";
+                    sleep(2000)
+                    document.getElementById('notification').innerHTML = '';
+                }
+            }
+</script>

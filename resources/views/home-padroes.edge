@@ -1,0 +1,21 @@
+@set('title', 'SPYBET - Padrões de Apostas')
+@include('home')
+
+
+@entryPointStyles('home-padroes')
+
+<div class="conteiner-principal-home-padroes">
+    <input type="hidden" class="idUser" value="{{auth.user.id}}">
+    <div class="conteiner-secundario-home-padroes">
+
+        <div class="padroes-compartilhados">
+
+
+        </div>
+
+
+    </div>
+</div>
+
+
+@entryPointScripts('home-padroes')

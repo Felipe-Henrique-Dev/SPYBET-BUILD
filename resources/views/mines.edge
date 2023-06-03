@@ -1,0 +1,230 @@
+@set('title', 'SPYBET - Mines Padrões')
+@include('layouts/main')
+<script src="/socket.io/socket.io.js"></script>
+@entryPointStyles('mines')
+@entryPointScripts('mines')
+
+
+<Section class="ctlog">
+    <div class="conteiner">
+        <span>Selecione o site  <i class="fa-solid fa-arrow-down"></i></span>
+        <div class="conteiner-menu-selecao">
+            
+            <ul class="menu-selecao-interno">
+                <Li id='Blaze'class="lista"  >
+                    <button class="icon2" id="blaze" ><img  src="{{ asset ('assets/images/blaze.png')}}" class="iconb.png" alt=""></button>
+                </Li>
+                
+                <Li id='Stake' class="lista" >
+                    <button class="icon2"><img src="{{ asset('assets/images/stake.png')}}" class="iconb.png" alt=""></button>
+                </Li>
+            </ul>
+        </div>
+    </div>
+    <div class="conteiner-principal">
+        
+        <div class="cat-1" style="display:none">
+            <span>1° Vá até o mines da <span class="text plataforma"></span> clique em justiça, depois em semente do cliente coloque exatamente esse código ><span class="text semente-cliente">10 – 5 – 6 – 5</span>< e clique em <span class="text mudar-update"></span></span>
+            <span>2° Copie o codigo da <span class="text">Seed do servidor</span> que foi gerado e cole abaixo. </span>
+            <span id="seed">Seed do servidor: <input type="text" name="" id="seed-gerada"></span>
+            <span class="button-conteiner"><button class="enviar-seed" >Enviar</button></span>
+            <span class="msg-bombas text msg-erro-seed"></span>
+        </div>
+
+        <div class="copnteiner-principal-grids cat-2" style="display:none">
+            <span class="msg-bombas">1° Selecione 4 bombas no mines</span>
+            <span class="msg-bombas">2° Jogue uma partida com menor valor possivel, selecione apenas o quadrado do meio e encerre</span></span>
+            <span class="msg-bombas">3° Verifique a posição das bombas e coloque abaixo:</span>
+            <span class="msg-bombas text">OBS: Fara esse processo 5 vezes!</span>
+            <span class="msg-bombas text qtdJogos">1° jogo</span>
+            <div class="minas-conteiner" >
+                <tr class="tr1">
+                    <td class="a1">
+                        <span class="a1" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg" alt=""></span>
+                    </td>
+                    <td class="a2">
+                        <span class="a2" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="a3">
+                        <span class="a3" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="a4">
+                        <span class="a4" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="a5">
+                        <span class="a5" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                </tr>
+                <tr class="tr2">
+                    <td class="b1">
+                        <span class="b1" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="b2">
+                        <span class="b2" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="b3">
+                        <span class="b3" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="b4">
+                        <span class="b4" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="b5">
+                        <span class="b5" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                </tr>
+                <tr class="tr3">
+                    <td class="c1">
+                        <span class="c1" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="c2">
+                        <span class="c2" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="c3">
+                        <span class="c3" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="c4">
+                        <span class="c4" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="c5">
+                        <span class="c5" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                </tr>
+                <tr class="tr4">
+                    <td class="d1">
+                        <span class="d1" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="d2">
+                        <span class="d2" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="d3">
+                        <span class="d3" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="d4">
+                        <span class="d4" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="d5">
+                        <span class="d5" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                </tr>
+                <tr class="tr5">
+                    <td class="e1">
+                        <span class="e1" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="e2">
+                        <span class="e2" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="e3">
+                        <span class="e3" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="e4">
+                        <span class="e4" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="e5">
+                        <span class="e5" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                </tr>
+    
+            </div>
+            <span class="msg-bombas text msg-erro-jogos"></span>
+
+            <span class="button-conteiner"><button class="enviar-jogos" >Enviar</button></span>
+        </div>
+        <span class="carregando-new-conteiner" style="display:none"><h1 data-text="Carregando..." class="carregando-new">Carregando...</h1></span>
+        <div class="copnteiner-principal-grids cat-3" style="display:none">
+            <span class="msg-resultado">Jogue igual abaixo </span>
+            <div class="minas-conteiner">
+                <tr class="tr1">
+                    <td class="a1">
+                        <span class="a1" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="a2">
+                        <span class="a2" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="a3">
+                        <span class="a3" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="a4">
+                        <span class="a4" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="a5">
+                        <span class="a5" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                </tr>
+                <tr class="tr2">
+                    <td class="b1">
+                        <span class="b1" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="b2">
+                        <span class="b2" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="b3">
+                        <span class="b3" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="b4">
+                        <span class="b4" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="b5">
+                        <span class="b5" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                </tr>
+                <tr class="tr3">
+                    <td class="c1">
+                        <span class="c1" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="c2">
+                        <span class="c2" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="c3">
+                        <span class="c3" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="c4">
+                        <span class="c4" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="c5">
+                        <span class="c5" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                </tr>
+                <tr class="tr4">
+                    <td class="d1">
+                        <span class="d1" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="d2">
+                        <span class="d2" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="d3">
+                        <span class="d3" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="d4">
+                        <span class="d4" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="d5">
+                        <span class="d5" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                </tr>
+                <tr class="tr5">
+                    <td class="e1">
+                        <span class="e1" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="e2">
+                        <span class="e2" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="e3">
+                        <span class="e3" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="e4">
+                        <span class="e4" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                    <td class="e5">
+                        <span class="e5" ><img class="img-noBomb" src="http://www.spybet.com.br/assets/images/noBomb.0e27daf5.svg"  alt=""></span>
+                    </td>
+                </tr>
+    
+            </div>
+            <span class="button-conteiner"><button class="reiniciar-jogos" >Novo Jogo</button></span>
+
+        </div>
+    </div>
+            
+    </div>
+</Section>
+

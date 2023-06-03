@@ -1,0 +1,85 @@
+@set('title', 'SPYBET - LOGIN')
+    @include('layouts/main')
+    @include('icon')
+    <script src="https://www.google.com/recaptcha/api.js?render=6Ld88TMjAAAAAMUcJabjwQg0_DzSo8Yk3latVD3b"></script>
+    @entryPointStyles('login')
+    @entryPointScripts('login')
+
+    <!-- ================================================================================================ -->
+@section('body')
+   
+    <section class="_arealogin">      
+        <div class="conteiner-principal-login">
+            <div class="conteiner-secundario-login">
+                <form action="{{route('RoutesController.loginPost')}}" id="form-submit" method ="POST">
+                    {{ csrfField() }}  
+                    <span class="alert alert-error alert-recaptcha" style="display:none">Verificação de segurança falhou, tente novamente.</span>
+                    @if(flashMessages.has('renovação'))
+                        <span class="alert alert-success alert-renovacao">{{flashMessages.get('renovação')}}</span>
+                    @endif
+                    @if(flashMessages.has('processando'))
+                        <span class="alert alert-processando"><a href="#" target="_blank">Whatsapp <i class="fa-brands fa-whatsapp"></i></a></span>
+                    @endif
+                    @if(flashMessages.has('error'))
+                        <span class="alert alert-error">{{flashMessages.get('error')}}</span>
+                    @endif
+                    @if(flashMessages.has('successRegister'))
+                        <span class="alert alert-success">{{flashMessages.get('successRegister')}}<a href="/auth/verification/new">reenviar.</a></span>
+                    @endif
+                    @include('partials/alert')
+                    @include('partials/errors')
+                    <input type="hidden" name="recaptchaToken"  >
+                    <div class="mini-conteiner-login">
+                        <p><label for="email">E-mail</label><i class="fa-solid fa-envelope"></i></p>
+                        <p><input type="email" name="email" class="login" id="email" value=""></p>
+                    </div>
+        
+                    <div class="mini-conteiner-login">
+                        <p><label for="password">Senha</label><i class="fa-solid fa-lock"></i></p>
+                        <p><input type="password" name="password" class="login" id="password" value=""></p>
+                    </div>
+                    
+                    <div class="mini-conteiner-btn">
+                        <span class="btn-login">
+                            <input type="submit"  class="btn-enviar" id="btn-Enviar" name='Enviar' value="Entrar" ><label for="btn-Enviar"><span class="btn-enviar-icon"></span></label></a>
+                        </span>
+                        <span class="btn-login" >
+                            <button type="button" class="semRegistro"">Entrar sem registro</button>
+                        </span>
+                    </div>
+                    
+                </form>
+                
+                 
+                <div class="mini-conteiner-btn">
+                    <span class="btn-login">
+                        <a href="{{route('RoutesController.cadastro')}}"><input type="submit" id="btn-Cadastrar" class="btn-cadastrar" value="Cadastre-se" ><label for="btn-Cadastrar"><span class="btn-cadastrar-icon"><i class="fa-solid fa-person-circle-plus"></i></span></label></a>
+                    </span>
+                    
+                </div>
+                <div>
+                    <p class="esqueciSenha"><a href="{{route('PasswordRecoveriesController.create')}}">Esqueci minha senha.</a></p>
+                </div>
+                
+            </div> 
+                
+        </div>
+         
+    </section>
+
+@end
+<script>
+    const form = document.querySelector('#form-submit')
+    form.addEventListener('submit', function (e) {
+        event.preventDefault()
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6Ld88TMjAAAAAMUcJabjwQg0_DzSo8Yk3latVD3b', {action: 'login'}).then(function(token) {
+                document.querySelector('input[name="recaptchaToken"]').value = token
+                console.log(token)
+                form.submit()
+            });
+        });
+    })
+
+</script>
+@include('footer')

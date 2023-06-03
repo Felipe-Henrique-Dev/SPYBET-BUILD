@@ -1,0 +1,141 @@
+@set('title', 'SPYBET - Tabela de Gerenciamento')
+@include('home-gerenciamento-menu')
+@entryPointScripts('home-gerenciamento-tabelascriadas')
+
+@entryPointStyles('home-gerenciamento-tabelascriadas')
+<div class="conteiner-principal-tabelascriadas">
+    <div class="conteiner-secundario-tabelascriadas">
+
+        <div class="mensagem-qtd-de-tabelas">
+            <p>
+                <span>
+                    {{auth.user.name}}, você tem <span class="qtd-de-tabelas" value='{{qtdTabela}}'>{{qtdTabela}}</span> tabelas criadas. O limite é de 10 tabelas.
+                </span>
+            </p>
+        </div>
+        
+        <div class="lista-de-tabelas">
+            @if( tabelaID[0] != undefined )
+            <ul>
+                <li class="Tabela0 {{nomeTabela[0]}}" id="">
+                    <span class="nome-da-tabela" ><a href=" {{route('TabelasController.show' , {id: tabelaID[0]} )}}">{{nomeTabela[0]}}</a></span>
+                    <div class="conteiner-decoracao-icones">   
+                        <span class="decoracao-icones"><a href=" {{route('TabelasController.show' , {id: tabelaID[0]} )}}"><i class="fa-solid fa-eye"></i></a></span></span>
+                        <span class="decoracao-icones"><a href="{{route('TabelasController.tabeladestroy' , {id: tabelaID[0]} )}}"><i class="fa fa-trash-can"></i></a></span>
+                    </div>
+                </li>
+            </ul>
+            @endif
+            @if( tabelaID[1] != undefined )
+            <ul>
+                <li class="Tabela1 {{nomeTabela[1]}}" id="">
+                    <span class="nome-da-tabela" ><a href=" {{route('TabelasController.show' , {id: tabelaID[1]} )}}">{{nomeTabela[1]}}</a></span>
+                    <div class="conteiner-decoracao-icones">   
+                        <span class="decoracao-icones"><a href=" {{route('TabelasController.show' , {id: tabelaID[1]} )}}"><i class="fa-solid fa-eye"></i></a></span>
+                        <span class="decoracao-icones"><a href="{{route('TabelasController.tabeladestroy' , {id: tabelaID[1]} )}}"><i class="fa fa-trash-can"></i></a></span>
+                    </div>
+                </li>
+            </ul>
+            @endif
+            @if( tabelaID[2] != undefined )
+            <ul>
+                <li class="Tabela2 {{nomeTabela[2]}}" id="">
+                    <span class="nome-da-tabela" ><a href=" {{route('TabelasController.show' , {id: tabelaID[2]} )}}">{{nomeTabela[2]}}</a></span>
+                    <div class="conteiner-decoracao-icones">   
+                        <span class="decoracao-icones"><a href=" {{route('TabelasController.show' , {id: tabelaID[2]} )}}"><i class="fa-solid fa-eye"></i></a></span>
+                        <span class="decoracao-icones"><a href="{{route('TabelasController.tabeladestroy' , {id: tabelaID[2]} )}}"><i class="fa fa-trash-can"></i></a></span>
+                    </div>
+                </li>
+            </ul>
+            @endif
+            @if( tabelaID[3] != undefined )
+            <ul>
+                <li class="Tabela3 {{nomeTabela[3]}}" id="">
+                    <span class="nome-da-tabela" ><a href=" {{route('TabelasController.show' , {id: tabelaID[3]} )}}">{{nomeTabela[3]}}</a></span>
+                    <div class="conteiner-decoracao-icones">   
+                        <span class="decoracao-icones"><a href=" {{route('TabelasController.show' , {id: tabelaID[3]} )}}"><i class="fa-solid fa-eye"></i></a></span>
+                        <span class="decoracao-icones"><a href="{{route('TabelasController.tabeladestroy' , {id: tabelaID[3]} )}}"><i class="fa fa-trash-can"></i></a></span>
+                    </div>
+                </li>
+            </ul>
+            @endif
+            @if( tabelaID[4] != undefined )
+            <ul>
+                <li class="Tabela4 {{nomeTabela[4]}}" id="">
+                    <span class="nome-da-tabela" ><a href=" {{route('TabelasController.show' , {id: tabelaID[4]} )}}">{{nomeTabela[4]}}</a></span>
+                    <div class="conteiner-decoracao-icones">   
+                        <span class="decoracao-icones"><a href=" {{route('TabelasController.show' , {id: tabelaID[4]} )}}"><i class="fa-solid fa-eye"></i></a></span>
+                        <span class="decoracao-icones"><a href="{{route('TabelasController.tabeladestroy' , {id: tabelaID[4]} )}}"><i class="fa fa-trash-can"></i></a></span>
+                    </div>
+                </li>
+            </ul>
+            @endif
+            @if( tabelaID[5] != undefined )
+            <ul>
+                <li class="Tabela5 {{nomeTabela[5]}}" id="">
+                    <span class="nome-da-tabela" ><a href=" {{route('TabelasController.show' , {id: tabelaID[5]} )}}" >{{nomeTabela[5]}}</a></span>
+                    <div class="conteiner-decoracao-icones">   
+                        <span class="decoracao-icones"><a href=" {{route('TabelasController.show' , {id: tabelaID[5]} )}}" ><i class="fa-solid fa-eye"></i></a></span>
+                        <span class="decoracao-icones"><a href="{{route('TabelasController.tabeladestroy' , {id: tabelaID[5]} )}}"><i class="fa fa-trash-can"></i></a></span>
+                    </div>
+                </li>
+            </ul>
+            @endif
+            @if( tabelaID[6] != undefined )
+            <ul>
+                <li class="Tabela6 {{nomeTabela[6]}}" id="">
+                    <span class="nome-da-tabela" ><a href=" {{route('TabelasController.show' , {id: tabelaID[6]} )}}">{{nomeTabela[6]}}</a></span>
+                    <div class="conteiner-decoracao-icones">   
+                        <span class="decoracao-icones"><a href=" {{route('TabelasController.show' , {id: tabelaID[6]} )}}"><i class="fa-solid fa-eye"></i></a></span>
+                        <span class="decoracao-icones"><a href="{{route('TabelasController.tabeladestroy' , {id: tabelaID[6]} )}}"><i class="fa fa-trash-can"></i></a></span>
+                    </div>
+                </li>
+            </ul>
+            @endif
+            @if( nomeTabela[7] != undefined )
+            <ul>
+                <li class="Tabela7 {{nomeTabela[7]}}" id="">
+                    <span class="nome-da-tabela" ><a href=" {{route('TabelasController.show' , {id: tabelaID[7]} )}}">{{nomeTabela[7]}}</a></span>
+                    <div class="conteiner-decoracao-icones">   
+                        <span class="decoracao-icones"><a href=" {{route('TabelasController.show' , {id: tabelaID[7]} )}}"><i class="fa-solid fa-eye"></i></a></span>
+                        <span class="decoracao-icones"><a href="{{route('TabelasController.tabeladestroy' , {id: tabelaID[7]} )}}"><i class="fa fa-trash-can"></i></a></span>
+                    </div>
+                </li>
+            </ul>
+            @endif
+            @if(nomeTabela[8] != undefined)
+            <ul>
+                <li class="Tabela8 {{nomeTabela[8]}}" id="">
+                    <span class="nome-da-tabela" ><a href=" {{route('TabelasController.show' , {id: tabelaID[8]} )}}">{{nomeTabela[8]}}</a></span>
+                    <div class="conteiner-decoracao-icones">   
+                        <span class="decoracao-icones"><a href=" {{route('TabelasController.show' , {id: tabelaID[8]} )}}"><i class="fa-solid fa-eye"></i></a></span>
+                        <span class="decoracao-icones"><a href="{{route('TabelasController.tabeladestroy' , {id: tabelaID[8]} )}}"><i class="fa fa-trash-can"></i></a></span>
+                    </div>
+                </li>
+            </ul>
+            @endif
+            @if(nomeTabela[9] != undefined)
+            <ul>
+                <li class="Tabela9 {{nomeTabela[9]}}" id="">
+                    <span class="nome-da-tabela" ><a href=" {{route('TabelasController.show' , {id: tabelaID[9]} )}}">{{nomeTabela[9]}}</a></span>
+                    <div class="conteiner-decoracao-icones">   
+                        <span class="decoracao-icones"><a href=" {{route('TabelasController.show' , {id: tabelaID[9]} )}}"><i class="fa-solid fa-eye"></i></a></span>
+                        <span class="decoracao-icones"><a href="{{route('TabelasController.tabeladestroy' , {id: tabelaID[9]} )}}"><i class="fa fa-trash-can"></i></a></span>
+                    </div>
+                </li>
+            </ul>
+            @endif
+            @if(nomeTabela[10] != undefined)
+            <ul>
+                <li class="Tabela10 {{nomeTabela[10]}}" id="">
+                    <span class="nome-da-tabela" ><a href=" {{route('TabelasController.show' , {id: tabelaID[10]} )}}">{{nomeTabela[10]}}</a></span>
+                    <div class="conteiner-decoracao-icones">   
+                        <span class="decoracao-icones"><a href=" {{route('TabelasController.show' , {id: tabelaID[10]} )}}"><i class="fa-solid fa-eye"></i></a></span>
+                        <span class="decoracao-icones"><a href="{{route('TabelasController.tabeladestroy' , {id: tabelaID[10]} )}}"><i class="fa fa-trash-can"></i></a></span>
+                    </div>
+                </li>
+            </ul>
+            @endif
+        </div>
+    </div>
+</div>

@@ -1,0 +1,265 @@
+@set('title', 'SPYBET - Cadastro')
+@include('layouts/main')
+@include('icon')
+@entryPointStyles('cadastro')
+@entryPointScripts('cadastro')
+
+@section('body')
+    <section class="acadastro">
+        <form id="form-new-user" action="{{route('RoutesController.registerPost')}}" method ="POST" >
+            {{ csrfField() }}     
+            <div class="Main-conteiner">
+            
+                <div class="sub-conteiner-principal">
+                    <div class="sub-conteiner-secundario">
+                        <div class="mini-conteiner">
+                            
+                            <label for="user-Nome">Nome</label>
+                            <span class="input-conteiner">
+                                <input type="text" name="name" id="user-Nome" class="form-input user-nome" placeholder="Nome" autofocus><span class=""><i class="fa-solid fa-id-card"></i></span>
+                            </span>
+                            
+                            
+                        </div>
+                        @if(flashMessages.has('errors.name'))
+                            <span class="msg-erro-form" id="Nome__">{{ flashMessages.get('errors.name') }}</span>
+                        @endif
+                    </div>
+                    
+                    <div class="sub-conteiner-secundario">
+                        <div class="mini-conteiner">
+                        
+                            <label for="user-SobreNome"">Sobrenome</label>
+                            <span class="input-conteiner">
+                                <input type="text" name="sobrenome" class="form-input user-sobrenome" id="user-SobreNome" placeholder="Sobrenome" ><span><i class="fa-solid fa-id-card"></i></span>
+                            </span>
+                            
+                        </div>
+                        @if(flashMessages.has('errors.sobrenome'))
+                            <span class="msg-erro-form" id="SobreNome__">{{ flashMessages.get('errors.sobrenome') }}</span>
+                            @endif
+                    </div>
+                </div>
+                
+
+                <div class="sub-conteiner-principal">
+                    <div class="sub-conteiner-secundario">
+                        <div class="mini-conteiner">
+                        
+                            <label for="user-Senha">Senha</label>
+                            <span class="input-conteiner">
+                                <input type="password" name="password" class="form-input user-senha" id="user-Senha" placeholder="Senha" maxlength="12" /><span><i class="fa fa-lock"></i></span>
+                            </span>
+                            
+                        </div> 
+                        @if(flashMessages.has('errors.password'))
+                            <span  class="msg-erro-form" id="Senha_">{{flashMessages.get('errors.password')}}</span>
+                        @endif
+                    </div>
+
+                    <div class="sub-conteiner-secundario">
+                        <div class="mini-conteiner">  
+                        
+                            <label for="user-ConfSenha">Confirmar Senha</label>
+                            <span class="input-conteiner">
+                                <input type="password" name="password_confirmation" class="form-input user-confirmarSenha" id="user-ConfSenha" placeholder="Confirme a senha" maxlength="12" /><span><i class="fa fa-lock"></i></span>
+                            </span>
+                            
+                        </div> 
+                        @if(flashMessages.has('errors.password_confirmation'))
+                            <span class="msg-erro-form" id="ConfirmarSenha_"> {{flashMessages.get('errors.password_confirmation') }} </span>
+                        @endif 
+                    </div>
+                </div>
+
+                <div class="sub-conteiner-principal">
+                    <div class="sub-conteiner-secundario">
+                        <div class="mini-conteiner-dataNascimento" style="align-items: center;">
+                        
+
+                            <label for="user-DataNascimento">Data de Nascimento</label>
+                            <span class="input-conteiner">
+                                <input type="text" id="user-DataNascimento" name="data_nascimento"  class="form-input user-dataNascimento" maxlength="10" onkeypress="mascaraData(this)" placeholder="DD/MM/AAAA">
+                            </span>
+                            
+                        </div>
+                        @if(flashMessages.has('errors.data_nascimento'))
+                            <span class="msg-erro-form" id="Datanascimento">{{flashMessages.get('errors.data_nascimento') }} </span>
+                        @endif
+                    </div>
+                </div>
+
+                <div class="sub-conteiner-principal">
+                    <div class="sub-conteiner-secundario">
+                        <div class="mini-conteiner" style="align-items: center;">
+                        
+                            <label for="user-Telefone">Whatszapp</label>
+                            <span class="input-conteiner">
+                                <input type="tel" name="telefone" id="user-Telefone" onkeydown="return mascaraTelefone(event)" class="form-input user-tell"  placeholder='(00) 00000-0000'><span><i class="fa-brands fa-whatsapp"></i></span>
+                            </span>
+                            
+                        </div>
+                        @if(flashMessages.has('errors.telefone'))
+                            <span class="msg-erro-form" id="whatszapp"> {{flashMessages.get('errors.telefone')}} </span>
+                        @endif
+                    </div>
+                </div>
+
+            
+                <div class="sub-conteiner-principal">
+                    <div class="sub-conteiner-secundario">
+                        <div class="mini-conteiner-email" style="align-items: center;">
+                        
+                            <label for="user-Email">E-mail</label>
+                            <span class="input-conteiner">
+                                <input type="email" id="user-Email" name="email" class="form-input user-email" placeholder="E-mail">
+                            </span>
+                            @if(flashMessages.has('errors.email'))
+                            <span class="msg-erro-form" id="E-mail">{{flashMessages.get('errors.email') }} </span>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-conteiner-principal" style="display:none">
+                    <div class="sub-conteiner-secundario">
+                        <div class="mini-conteiner" style="align-items: center;">
+                        
+                            <label for="user-Telefone">CPF</label>
+                            <span class="input-conteiner">
+                                <input type="tel" name="cpf" id="" onkeyup="" class="form-input user-cpf"  value="{{parametros}}"><span></span>
+                            </span>
+                            
+                        </div>
+                        @if(flashMessages.has('errors.cpf'))
+                            <span class="msg-erro-form user-cpf-msg" id="user-cpf-msg">{{flashMessages.get('errors.cpf') }} </span>
+                        @endif
+                            <span class="msg-erro-form" id="cpfResponse"></span>
+                    </div>
+                </div>
+
+
+                
+                <div class="conteiner-Registrar">
+                    <span class="mini-conteiner-registrar">
+                        <input  type="submit" nome="enviarbs" class="btn-new-user-regirtrar" id="Enviar_" value="Registrar" form="form-new-user" onsubmit="return false"><span><i class="fa fa-user-plus"></i></span>
+                    </span>
+                </div>                       
+                <p class="msg-terms">Ao clicar em Registrar, você concorda com nossos</p>
+                <p class="msg-terms"><a href="/termos-de-uso">Termos de Uso</a> e <a href="/termos-de-privacidade">Política de Privacidade</a>.</p>
+            </div>
+        </form> 
+
+        <script>
+            function mascaraData(val) {
+                var pass = val.value;
+                var expr = /[0123456789]/;
+
+                for (i = 0; i < pass.length; i++) {
+                    var lchar = val.value.charAt(i);
+                    var nchar = val.value.charAt(i + 1);
+
+                    if (i == 0) {
+                    if ((lchar.search(expr) != 0) || (lchar > 3)) {
+                        val.value = "";
+                    }
+
+                    } else if (i == 1) {
+
+                    if (lchar.search(expr) != 0) {
+                        var tst1 = val.value.substring(0, (i));
+                        val.value = tst1;
+                        continue;
+                    }
+
+                    if ((nchar != '/') && (nchar != '')) {
+                        var tst1 = val.value.substring(0, (i) + 1);
+
+                        if (nchar.search(expr) != 0)
+                        var tst2 = val.value.substring(i + 2, pass.length);
+                        else
+                        var tst2 = val.value.substring(i + 1, pass.length);
+
+                        val.value = tst1 + '/' + tst2;
+                    }
+
+                    } else if (i == 4) {
+
+                    if (lchar.search(expr) != 0) {
+                        var tst1 = val.value.substring(0, (i));
+                        val.value = tst1;
+                        continue;
+                    }
+
+                    if ((nchar != '/') && (nchar != '')) {
+                        var tst1 = val.value.substring(0, (i) + 1);
+
+                        if (nchar.search(expr) != 0)
+                        var tst2 = val.value.substring(i + 2, pass.length);
+                        else
+                        var tst2 = val.value.substring(i + 1, pass.length);
+
+                        val.value = tst1 + '/' + tst2;
+                    }
+                    }
+
+                    if (i >= 6) {
+                    if (lchar.search(expr) != 0) {
+                        var tst1 = val.value.substring(0, (i));
+                        val.value = tst1;
+                    }
+                    }
+                }
+
+                if (pass.length > 10)
+                    val.value = val.value.substring(0, 10);
+                return true;
+                }
+            function mascaraTelefone(event) {
+                let tecla = event.key;
+                let telefone = event.target.value.replace(/\D+/g, "");
+            
+                if (/^[0-9]$/i.test(tecla)) {
+                    telefone = telefone + tecla;
+                    let tamanho = telefone.length;
+            
+                    if (tamanho >= 12) {
+                        return false;
+                    }
+                    
+                    if (tamanho > 10) {
+                        telefone = telefone.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
+                    } else if (tamanho > 5) {
+                        telefone = telefone.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
+                    } else if (tamanho > 2) {
+                        telefone = telefone.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
+                    } else {
+                        telefone = telefone.replace(/^(\d*)/, "($1");
+                    }
+            
+                    event.target.value = telefone;
+                }
+            
+                if (!["Backspace", "Delete"].includes(tecla)) {
+                    return false;
+                }
+            }
+            
+        
+            
+            </script>
+            <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+            <script>
+                async function getIpClient() {
+                try {
+                    const response = await axios.get('https://api.ipify.org?format=json');
+                    let inputIP = document.getElementsByClassName('inputIP');
+                    inputIP[0].value = response.data.ip;
+                } catch (error) {
+                    //console.error(error);
+                }
+                }
+                
+                getIpClient();
+            </script>
+    </section>  
+@end

@@ -1,0 +1,37 @@
+@include('home')
+@entryPointStyles('home-gerenciamento-menu')
+@entryPointScripts('home-gerenciamento-menu')
+
+<div class="container-principal-gerenciamento">
+    <div class="conteiner-secundario-gerenciamento">
+
+        <div id="sobre-gerenciamento" class="table">
+            <a href="{{ route('TabelasController.sobreGerenciamento') }}">
+               <span class="sobre-gerenciamento-span"> 
+                    <i class="fa fa-bars-progress"></i>
+                    Sobre gerenciamento
+                </span>
+            </a>
+        </div>
+        
+        <div id="criar-tabela" class="table" >
+            <a href=" {{ route('TabelasController.index') }} ">
+                <span class="tabela-span">
+                    <i class="fa fa-table-cells"></i>
+                    Criar tabela
+                </span>
+            </a>
+        </div>
+
+        <div id="tabelas-criadas" class="table" >
+            
+            <a href="{{ route('TabelasController.tabelasCriadas') }}">
+                <span class="tabelas-criadas-home">
+                    <i class="fa fa-magnifying-glass"></i>
+                    Tabelas criadas  
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+

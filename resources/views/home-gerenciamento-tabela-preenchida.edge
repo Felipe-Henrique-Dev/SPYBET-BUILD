@@ -1,0 +1,394 @@
+@set('title', 'SPYBET - Tabela de Gerenciamento')
+@include('home-gerenciamento-menu')
+@entryPointScripts('home-gerenciamento-tabelapreenchida')
+@entryPointStyles('home-gerenciamento-tabelapreenchida')
+
+<form action="{{route('TabelasController.tabelaupdate' , {id:idAtual} )}}" method="PUT" id="formTabela">
+    
+    <input class="nomeTabela" value="{{ tabela.name }}" name="nomeTabela" hidden>
+    <div class="container-principal-menuTabela">
+        <div class="container-secundario-menuTabela">
+            <div class="menuTabela">
+                <div class="periodoDaTabela">
+                    
+                    <p>Qual periodo ?  
+                        <select id="periodoDias" name="periodoDias" readonly>
+                            
+                        <option value="{{tabelaarray[1]}}">{{tabelaarray[1]}}</option>
+                        </select>
+                    </p>
+                    <span class="span-erro-menu" id="periodoDias-erro"></span>
+                    
+                </div>
+
+                <div class="selectTipo" >
+                    <p>Forma de investimento: 
+                        <select id="tipo" name="tipo" value='{{tabelaarray[2]}}'readonly>
+                            <option value="{{tabelaarray[2]}}" selected>{{tabelaarray[2]}}</option>
+                        </select>
+                    </p>
+                    <span class="span-erro-menu"  id="tipo-erro" readonly></span>
+                    
+                </div>
+
+                <div class="selectRendimento" >
+                    <p>Meta diaria: <input type="number" name="selectTipoRendimento" id="selectTipoRendimento" class="rendimento-" value="{{tabelaarray[3]}}" readonly> </p>
+                    <span  class="span-erro-menu"  id="rendimento-erro"></span>
+                </div>
+
+                <div class="selectStopLoss" >
+                    <p>Stop Loss:
+                        <select id="stopLoss" name="stopLoss" readonly>
+                            <option value="{{tabelaarray[4]}}"> {{tabelaarray[4]}} </option>
+                            
+                        </select>
+                    </p>
+                    <span  class="span-erro-menu"  id="stoploss-erro"></span>
+                </div>
+
+
+                <div class="valorBancaInicial">
+                    <p>Banca Inicial : <input value="{{tabelaarray[5]}}" type="number" id="valorDaBancaInicial" class='' name="valorDaBancaInicial" readonly></p>
+                    <span  class="span-erro-menu"  id="valorDaBancaInicial-erro" ></span>
+                
+                </div>
+
+            </div>
+        </div>
+       
+    </div>
+            
+    
+
+    <div class="conteinerHidden" hidden>
+        	
+        <div class="conteiner-principal-tabela">
+            <button type="submit" form="formTabela" id="salvarTabela" > Atualizar Tabela  <i class="fa fa-floppy-disk"></i></button>
+            <div class="conteiner-secundario-tabela" >
+                
+                <table id="table_id" class="displayTable" >
+                    
+                    <thead>
+                        <tr>
+                            <th>Dia</th>
+                            <th class="valorAtualizadoBanca">Valor atualizado Banca</th>
+                            <th></th>
+                            <th></th>
+                            <th class="stoploss">Stop Loss</th>
+                            <th class="stopgain">Stop Gain</th>
+                            <th class="Lucro-Prejuizo">lucro/prejuizo</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr class="tr1">   
+                            <td><input  type='text'   class="dia1"value=""  disabled='true' /></td>
+                            <td><input  type="number" class="valoratual-dia1"  name=""  value="{{tabelaarray[6]}}" readonly='true'></td>
+                            <td><button type="button" class="calculator-dia1"><i class="fa fa-calculator"></i></button></td>
+                            <td><button type="button" class="edit-dia1" hidden>  <i class="fa fa-file-pen" ></i></button></td>
+                            <td><input  type='number' name="stoploss-dia1" class="stoploss-dia1"  value="{{tabelaarray[7]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td><input  type='number' name="stopgain-dia1" class="stopgain-dia1"  value="{{tabelaarray[8]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td  class="resultado-td-dia1"   ><input  type='number' class="resultado-dia1" name="" id="resultado-"  value="{{tabelaarray[9]}}"    readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                        </tr>
+                        
+                        <tr class="tr2">   
+                            <td><input  type='text'   class="dia2"value=""  disabled='true' /></td>
+                            <td><input  type="number" class="valoratual-dia2"  name=""  value="{{tabelaarray[10]}}" readonly='true'></td>
+                            <td><button type="button" class="calculator-dia2"><i class="fa fa-calculator"></i></button></td>
+                            <td><button type="button" class="edit-dia2" hidden>  <i class="fa fa-file-pen" ></i></button></td>
+                            <td><input  type='number' name="stoploss-dia2" class="stoploss-dia2"  value="{{tabelaarray[11]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td><input  type='number' name="stopgain-dia2" class="stopgain-dia2"  value="{{tabelaarray[12]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td  class="resultado-td-dia2"   ><input  type='number' class="resultado-dia2" name="" id="resultado-"  value="{{tabelaarray[13]}}"    readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                        </tr>
+
+                        <tr class="tr3">   
+                            <td><input  type='text'   class="dia3"value=""  disabled='true' /></td>
+                            <td><input  type="number" class="valoratual-dia3"  name=""  value="{{tabelaarray[14]}}" readonly='true'></td>
+                            <td><button type="button" class="calculator-dia3"><i class="fa fa-calculator"></i></button></td>
+                            <td><button type="button" class="edit-dia3" hidden>  <i class="fa fa-file-pen" ></i></button></td>
+                            <td><input  type='number' name="stoploss-dia3" class="stoploss-dia3"  value="{{tabelaarray[15]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td><input  type='number' name="stopgain-dia3" class="stopgain-dia3"  value="{{tabelaarray[16]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td  class="resultado-td-dia3"   ><input  type='number' class="resultado-dia3" name="" id="resultado-"  value="{{tabelaarray[17]}}"    readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                        </tr>
+                        
+                        <tr class="tr4">   
+                            <td><input  type='text'   class="dia4"value=""  disabled='true' /></td>
+                            <td><input  type="number" class="valoratual-dia4"  name=""  value="{{tabelaarray[18]}}" readonly='true'></td>
+                            <td><button type="button" class="calculator-dia4"><i class="fa fa-calculator"></i></button></td>
+                            <td><button type="button" class="edit-dia4" hidden>  <i class="fa fa-file-pen" ></i></button></td>
+                            <td><input  type='number' name="stoploss-dia4" class="stoploss-dia4"  value="{{tabelaarray[19]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td><input  type='number' name="stopgain-dia4" class="stopgain-dia4"  value="{{tabelaarray[20]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td  class="resultado-td-dia4"   ><input  type='number' class="resultado-dia4" name="" id="resultado-"  value="{{tabelaarray[21]}}"    readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                        </tr>
+
+                        <tr class="tr5">   
+                            <td><input  type='text'   class="dia5"value=""  disabled='true' /></td>
+                            <td><input  type="number" class="valoratual-dia5"  name=""  value="{{tabelaarray[22]}}" readonly='true'></td>
+                            <td><button type="button" class="calculator-dia5"><i class="fa fa-calculator"></i></button></td>
+                            <td><button type="button" class="edit-dia5" hidden>  <i class="fa fa-file-pen" ></i></button></td>
+                            <td><input  type='number' name="stoploss-dia5" class="stoploss-dia5"  value="{{tabelaarray[23]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td><input  type='number' name="stopgain-dia5" class="stopgain-dia5"  value="{{tabelaarray[24]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td  class="resultado-td-dia5"   ><input  type='number' class="resultado-dia5" name="" id="resultado-"  value="{{tabelaarray[25]}}"    readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                        </tr>
+                        
+                        <tr class="tr6">   
+                            <td><input  type='text'   class="dia6"value=""  disabled='true' /></td>
+                            <td><input  type="number" class="valoratual-dia6"  name=""  value="{{tabelaarray[26]}}" readonly='true'></td>
+                            <td><button type="button" class="calculator-dia6"><i class="fa fa-calculator"></i></button></td>
+                            <td><button type="button" class="edit-dia6" hidden>  <i class="fa fa-file-pen" ></i></button></td>
+                            <td><input  type='number' name="stoploss-dia6" class="stoploss-dia6"  value="{{tabelaarray[27]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td><input  type='number' name="stopgain-dia6" class="stopgain-dia6"  value="{{tabelaarray[28]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td  class="resultado-td-dia6"   ><input  type='number' class="resultado-dia6" name="" id="resultado-"  value="{{tabelaarray[29]}}"    readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                        </tr>
+
+                        <tr class="tr7">   
+                            <td><input  type='text'   class="dia7"value=""  disabled='true' /></td>
+                            <td><input  type="number" class="valoratual-dia7"  name=""  value="{{tabelaarray[30]}}" readonly='true'></td>
+                            <td><button type="button" class="calculator-dia7"><i class="fa fa-calculator"></i></button></td>
+                            <td><button type="button" class="edit-dia7" hidden>  <i class="fa fa-file-pen" ></i></button></td>
+                            <td><input  type='number' name="stoploss-dia7" class="stoploss-dia7"  value="{{tabelaarray[31]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td><input  type='number' name="stopgain-dia7" class="stopgain-dia7"  value="{{tabelaarray[32]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td  class="resultado-td-dia7"   ><input  type='number' class="resultado-dia7" name="" id="resultado-"  value="{{tabelaarray[33]}}"    readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                        </tr>
+                        
+                        <tr class="tr8">   
+                            <td><input  type='text'   class="dia8"value=""  disabled='true' /></td>
+                            <td><input  type="number" class="valoratual-dia8"  name=""  value="{{tabelaarray[34]}}" readonly='true'></td>
+                            <td><button type="button" class="calculator-dia8"><i class="fa fa-calculator"></i></button></td>
+                            <td><button type="button" class="edit-dia8" hidden>  <i class="fa fa-file-pen" ></i></button></td>
+                            <td><input  type='number' name="stoploss-dia8" class="stoploss-dia8"  value="{{tabelaarray[35]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td><input  type='number' name="stopgain-dia8" class="stopgain-dia8"  value="{{tabelaarray[36]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td  class="resultado-td-dia8"   ><input  type='number' class="resultado-dia8" name="" id="resultado-"  value="{{tabelaarray[37]}}"    readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                        </tr>
+
+                        <tr class="tr9">   
+                            <td><input  type='text'   class="dia9"value=""  disabled='true' /></td>
+                            <td><input  type="number" class="valoratual-dia9"  name=""  value="{{tabelaarray[38]}}" readonly='true'></td>
+                            <td><button type="button" class="calculator-dia9"><i class="fa fa-calculator"></i></button></td>
+                            <td><button type="button" class="edit-dia9" hidden>  <i class="fa fa-file-pen" ></i></button></td>
+                            <td><input  type='number' name="stoploss-dia9" class="stoploss-dia9"  value="{{tabelaarray[39]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td><input  type='number' name="stopgain-dia9" class="stopgain-dia9"  value="{{tabelaarray[40]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td  class="resultado-td-dia9"   ><input  type='number' class="resultado-dia9" name="" id="resultado-"  value="{{tabelaarray[41]}}"    readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                        </tr>
+                        
+                        <tr class="tr10">   
+                            <td><input  type='text'   class="dia10" value=""  disabled='true' /></td>
+                            <td><input  type="number" class="valoratual-dia10"  name=""  value="{{tabelaarray[42]}}"  readonly='true'></td>
+                            <td><button type="button" class="calculator-dia10"><i class="fa fa-calculator"></i></button></td>
+                            <td><button type="button" class="edit-dia10" hidden>  <i class="fa fa-file-pen" ></i></button></td>
+                            <td><input  type='number' name="stoploss-dia10"class="stoploss-dia10"  value="{{tabelaarray[43]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td><input  type='number' name="stopgain-dia10"class="stopgain-dia10"  value="{{tabelaarray[44]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td  class="resultado-td-dia10"  ><input  type='number' class="resultado-dia10" name="" id="resultado-"  value="{{tabelaarray[45]}}"    readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                        </tr>
+                        
+                        <tr class="tr11">   
+                            <td><input  type='text'   class="dia11" value=""  disabled='true' /></td>
+                            <td><input  type="number" class="valoratual-dia11"  name=""  value="{{tabelaarray[46]}}" readonly='true'></td>
+                            <td><button type="button" class="calculator-dia11"><i class="fa fa-calculator"></i></button></td>
+                            <td><button type="button" class="edit-dia11" hidden>  <i class="fa fa-file-pen" ></i></button></td>
+                            <td><input  type='number' name="stoploss-dia11"class="stoploss-dia11"  value="{{tabelaarray[47]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td><input  type='number' name="stopgain-dia11"class="stopgain-dia11"  value="{{tabelaarray[48]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td  class="resultado-td-dia11"  ><input  type='number' class="resultado-dia11" name="" id="resultado-"  value="{{tabelaarray[49]}}"    readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                        </tr>
+                        
+                        <tr class="tr12">   
+                            <td><input  type='text'   class="dia12" value=""  disabled='true' /></td>
+                            <td><input  type="number" class="valoratual-dia12"  name=""  value="{{tabelaarray[50]}}" readonly='true'></td>
+                            <td><button type="button" class="calculator-dia12"><i class="fa fa-calculator"></i></button></td>
+                            <td><button type="button" class="edit-dia12" hidden>  <i class="fa fa-file-pen" ></i></button></td>
+                            <td><input  type='number' name="stoploss-dia12"class="stoploss-dia12"  value="{{tabelaarray[51]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td><input  type='number' name="stopgain-dia12"class="stopgain-dia12"  value="{{tabelaarray[52]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td  class="resultado-td-dia12"  ><input  type='number' class="resultado-dia12" name="" id="resultado-"  value="{{tabelaarray[53]}}"    readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                        </tr>
+
+                        <tr class="tr13">   
+                            <td><input  type='text'   class="dia13" value=""  disabled='true' /></td>
+                            <td><input  type="number" class="valoratual-dia13"  name=""  value="{{tabelaarray[54]}}" readonly='true'></td>
+                            <td><button type="button" class="calculator-dia13"><i class="fa fa-calculator"></i></button></td>
+                            <td><button type="button" class="edit-dia13" hidden>  <i class="fa fa-file-pen" ></i></button></td>
+                            <td><input  type='number' name="stoploss-dia13"class="stoploss-dia13"  value="{{tabelaarray[55]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td><input  type='number' name="stopgain-dia13"class="stopgain-dia13"  value="{{tabelaarray[56]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td  class="resultado-td-dia13"  ><input  type='number' class="resultado-dia13" name="" id="resultado-"  value="{{tabelaarray[57]}}"    readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                        </tr>
+                        
+                        <tr class="tr14">   
+                            <td><input  type='text'   class="dia14" value=""  disabled='true' /></td>
+                            <td><input  type="number" class="valoratual-dia14"  name=""  value="{{tabelaarray[58]}}" readonly='true'></td>
+                            <td><button type="button" class="calculator-dia14"><i class="fa fa-calculator"></i></button></td>
+                            <td><button type="button" class="edit-dia14" hidden>  <i class="fa fa-file-pen" ></i></button></td>
+                            <td><input  type='number' name="stoploss-dia14"class="stoploss-dia14"  value="{{tabelaarray[59]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td><input  type='number' name="stopgain-dia14"class="stopgain-dia14"  value="{{tabelaarray[60]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td  class="resultado-td-dia14"  ><input  type='number' class="resultado-dia14" name="" id="resultado-"  value="{{tabelaarray[61]}}"    readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                        </tr>
+
+                        <tr class="tr15">   
+                            <td><input  type='text'   class="dia15" value=""  disabled='true' /></td>
+                            <td><input  type="number" class="valoratual-dia15"  name=""  value="{{tabelaarray[62]}}" readonly='true'></td>
+                            <td><button type="button" class="calculator-dia15"><i class="fa fa-calculator"></i></button></td>
+                            <td><button type="button" class="edit-dia15" hidden>  <i class="fa fa-file-pen" ></i></button></td>
+                            <td><input  type='number' name="stoploss-dia15"class="stoploss-dia15"  value="{{tabelaarray[63]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td><input  type='number' name="stopgain-dia15"class="stopgain-dia15"  value="{{tabelaarray[64]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td  class="resultado-td-dia15"  ><input  type='number' class="resultado-dia15" name="" id="resultado-"  value="{{tabelaarray[65]}}"    readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                        </tr>
+                        
+                        <tr class="tr16">   
+                            <td><input  type='text'   class="dia16" value=""  disabled='true' /></td>
+                            <td><input  type="number" class="valoratual-dia16"  name=""  value="{{tabelaarray[66]}}" readonly='true'></td>
+                            <td><button type="button" class="calculator-dia16"><i class="fa fa-calculator"></i></button></td>
+                            <td><button type="button" class="edit-dia16" hidden>  <i class="fa fa-file-pen" ></i></button></td>
+                            <td><input  type='number' name="stoploss-dia16"class="stoploss-dia16"  value="{{tabelaarray[67]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td><input  type='number' name="stopgain-dia16"class="stopgain-dia16"  value="{{tabelaarray[68]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td  class="resultado-td-dia16"  ><input  type='number' class="resultado-dia16" name="" id="resultado-"  value="{{tabelaarray[69]}}"    readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                        </tr>
+
+                        <tr class="tr17">   
+                            <td><input  type='text'   class="dia17" value=""  disabled='true' /></td>
+                            <td><input  type="number" class="valoratual-dia17"  name=""  value="{{tabelaarray[70]}}" readonly='true'></td>
+                            <td><button type="button" class="calculator-dia17"><i class="fa fa-calculator"></i></button></td>
+                            <td><button type="button" class="edit-dia17" hidden>  <i class="fa fa-file-pen" ></i></button></td>
+                            <td><input  type='number' name="stoploss-dia17"class="stoploss-dia17"  value="{{tabelaarray[71]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td><input  type='number' name="stopgain-dia17"class="stopgain-dia17"  value="{{tabelaarray[72]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td  class="resultado-td-dia17"  ><input  type='number' class="resultado-dia17" name="" id="resultado-"  value="{{tabelaarray[73]}}"    readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                        </tr>
+                        
+                        <tr class="tr18">   
+                            <td><input  type='text'   class="dia18" value=""  disabled='true' /></td>
+                            <td><input  type="number" class="valoratual-dia18"  name=""  value="{{tabelaarray[74]}}" readonly='true'></td>
+                            <td><button type="button" class="calculator-dia18"><i class="fa fa-calculator"></i></button></td>
+                            <td><button type="button" class="edit-dia18" hidden>  <i class="fa fa-file-pen" ></i></button></td>
+                            <td><input  type='number' name="stoploss-dia18"class="stoploss-dia18"  value="{{tabelaarray[75]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td><input  type='number' name="stopgain-dia18"class="stopgain-dia18"  value="{{tabelaarray[76]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td  class="resultado-td-dia18"  ><input  type='number' class="resultado-dia18" name="" id="resultado-"  value="{{tabelaarray[77]}}"    readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                        </tr>
+
+                        <tr class="tr19">   
+                            <td><input  type='text'   class="dia19" value=""  disabled='true' /></td>
+                            <td><input  type="number" class="valoratual-dia19"  name=""  value="{{tabelaarray[78]}}" readonly='true'></td>
+                            <td><button type="button" class="calculator-dia19"><i class="fa fa-calculator"></i></button></td>
+                            <td><button type="button" class="edit-dia19" hidden>  <i class="fa fa-file-pen" ></i></button></td>
+                            <td><input  type='number' name="stoploss-dia19"class="stoploss-dia19"  value="{{tabelaarray[79]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td><input  type='number' name="stopgain-dia19"class="stopgain-dia19"  value="{{tabelaarray[80]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td  class="resultado-td-dia19"  ><input  type='number' class="resultado-dia19" name="" id="resultado-"  value="{{tabelaarray[81]}}"    readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                        </tr>
+                        
+                        <tr class="tr20">   
+                            <td><input  type='text'   class="dia20" value=""  disabled='true' /></td>
+                            <td><input  type="number" class="valoratual-dia20"  name=""  value="{{tabelaarray[82]}}" readonly='true'></td>
+                            <td><button type="button" class="calculator-dia20"><i class="fa fa-calculator"></i></button></td>
+                            <td><button type="button" class="edit-dia20" hidden>  <i class="fa fa-file-pen" ></i></button></td>
+                            <td><input  type='number' name="stoploss-dia20"class="stoploss-dia20"  value="{{tabelaarray[83]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td><input  type='number' name="stopgain-dia20"class="stopgain-dia20"  value="{{tabelaarray[84]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td  class="resultado-td-dia20"  ><input  type='number' class="resultado-dia20" name="" id="resultado-"  value="{{tabelaarray[85]}}"    readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                        </tr>
+
+                        <tr class="tr21">   
+                            <td><input  type='text'   class="dia21" value=""  disabled='true' /></td>
+                            <td><input  type="number" class="valoratual-dia21"  name=""  value="{{tabelaarray[86]}}" readonly='true'></td>
+                            <td><button type="button" class="calculator-dia21"><i class="fa fa-calculator"></i></button></td>
+                            <td><button type="button" class="edit-dia21" hidden>  <i class="fa fa-file-pen" ></i></button></td>
+                            <td><input  type='number' name="stoploss-dia21"class="stoploss-dia21"  value="{{tabelaarray[87]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td><input  type='number' name="stopgain-dia21"class="stopgain-dia21"  value="{{tabelaarray[88]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td  class="resultado-td-dia21"  ><input  type='number' class="resultado-dia21" name="" id="resultado-"  value="{{tabelaarray[89]}}"    readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                        </tr>
+                        
+                        <tr class="tr22">   
+                            <td><input  type='text'   class="dia22" value=""  disabled='true' /></td>
+                            <td><input  type="number" class="valoratual-dia22"  name=""  value="{{tabelaarray[90]}}" readonly='true'></td>
+                            <td><button type="button" class="calculator-dia22"><i class="fa fa-calculator"></i></button></td>
+                            <td><button type="button" class="edit-dia22" hidden>  <i class="fa fa-file-pen" ></i></button></td>
+                            <td><input  type='number' name="stoploss-dia22"class="stoploss-dia22"  value="{{tabelaarray[91]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td><input  type='number' name="stopgain-dia22"class="stopgain-dia22"  value="{{tabelaarray[92]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td  class="resultado-td-dia22"  ><input  type='number' class="resultado-dia22" name="" id="resultado-"  value="{{tabelaarray[93]}}"    readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                        </tr>
+
+                        <tr class="tr23">   
+                            <td><input  type='text'   class="dia23" value=""  disabled='true' /></td>
+                            <td><input  type="number" class="valoratual-dia23"  name=""  value="{{tabelaarray[94]}}" readonly='true'></td>
+                            <td><button type="button" class="calculator-dia23"><i class="fa fa-calculator"></i></button></td>
+                            <td><button type="button" class="edit-dia23" hidden>  <i class="fa fa-file-pen" ></i></button></td>
+                            <td><input  type='number' name="stoploss-dia23"class="stoploss-dia23"  value="{{tabelaarray[95]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td><input  type='number' name="stopgain-dia23"class="stopgain-dia23"  value="{{tabelaarray[96]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td  class="resultado-td-dia23"  ><input  type='number' class="resultado-dia23" name="" id="resultado-"  value="{{tabelaarray[97]}}"    readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                        </tr>
+                        
+                        <tr class="tr24">   
+                            <td><input  type='text'   class="dia24" value=""  disabled='true' /></td>
+                            <td><input  type="number" class="valoratual-dia24"  name=""  value="{{tabelaarray[98]}}" readonly='true'></td>
+                            <td><button type="button" class="calculator-dia24"><i class="fa fa-calculator"></i></button></td>
+                            <td><button type="button" class="edit-dia24" hidden>  <i class="fa fa-file-pen" ></i></button></td>
+                            <td><input  type='number' name="stoploss-dia24"class="stoploss-dia24"  value="{{tabelaarray[99]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td><input  type='number' name="stopgain-dia24"class="stopgain-dia24"  value="{{tabelaarray[100]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td  class="resultado-td-dia24"  ><input  type='number' class="resultado-dia24" name="" id="resultado-"  value="{{tabelaarray[101]}}"    readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                        </tr>
+
+                        <tr class="tr25">   
+                            <td><input  type='text'   class="dia25" value=""  disabled='true' /></td>
+                            <td><input  type="number" class="valoratual-dia25" name=""  value="{{tabelaarray[102]}}" readonly='true'></td>
+                            <td><button type="button" class="calculator-dia25"><i class="fa fa-calculator"></i></button></td>
+                            <td><button type="button" class="edit-dia25" hidden>  <i class="fa fa-file-pen" ></i></button></td>
+                            <td><input  type='number' name="stoploss-dia25"class="stoploss-dia25"  value="{{tabelaarray[103]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td><input  type='number' name="stopgain-dia25"class="stopgain-dia25"  value="{{tabelaarray[104]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td  class="resultado-td-dia25"  ><input  type='number' class="resultado-dia25" name="" id="resultado-"  value="{{tabelaarray[105]}}"    readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                        </tr>
+                        
+                        <tr class="tr26">   
+                            <td><input  type='text'   class="dia26" value=""  disabled='true' /></td>
+                            <td><input  type="number" class="valoratual-dia6"  name=""  value="{{tabelaarray[106]}}"  readonly='true'></td>
+                            <td><button type="button" class="calculator-dia26"><i class="fa fa-calculator"></i></button></td>
+                            <td><button type="button" class="edit-dia26" hidden>  <i class="fa fa-file-pen" ></i></button></td>
+                            <td><input  type='number' name="stoploss-dia26"class="stoploss-dia26"  value="{{tabelaarray[107]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td><input  type='number' name="stopgain-dia26"class="stopgain-dia26"  value="{{tabelaarray[108]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td  class="resultado-td-dia26"  ><input  type='number' class="resultado-dia26" name="" id="resultado-"  value="{{tabelaarray[109]}}"    readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                        </tr>
+
+                        <tr class="tr27">   
+                            <td><input  type='text'   class="dia27" value=""  disabled='true' /></td>
+                            <td><input  type="number" class="valoratual-dia27" name=""  value="{{tabelaarray[110]}}" readonly='true'></td>
+                            <td><button type="button" class="calculator-dia27"><i class="fa fa-calculator"></i></button></td>
+                            <td><button type="button" class="edit-dia27" hidden>  <i class="fa fa-file-pen" ></i></button></td>
+                            <td><input  type='number' name="stoploss-dia27"class="stoploss-dia27"  value="{{tabelaarray[111]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td><input  type='number' name="stopgain-dia27"class="stopgain-dia27"  value="{{tabelaarray[112]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td  class="resultado-td-dia27"  ><input  type='number' class="resultado-dia27" name="" id="resultado-"  value="{{tabelaarray[113]}}"    readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                        </tr>
+                        
+                        <tr class="tr28">   
+                            <td><input  type='text'   class="dia28" value=""  disabled='true' /></td>
+                            <td><input  type="number" class="valoratual-dia8"  name=""  value="{{tabelaarray[114]}}"  readonly='true'></td>
+                            <td><button type="button" class="calculator-dia28"><i class="fa fa-calculator"></i></button></td>
+                            <td><button type="button" class="edit-dia28" hidden>  <i class="fa fa-file-pen" ></i></button></td>
+                            <td><input  type='number' name="stoploss-dia28"class="stoploss-dia28"  value="{{tabelaarray[115]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td><input  type='number' name="stopgain-dia28"class="stopgain-dia28"  value="{{tabelaarray[116]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td  class="resultado-td-dia28"  ><input  type='number' class="resultado-dia28" name="" id="resultado-"  value="{{tabelaarray[117]}}"    readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                        </tr>
+
+                        <tr class="tr29">   
+                            <td><input  type='text'   class="dia29" value=""  disabled='true' /></td>
+                            <td><input  type="number" class="valoratual-dia29" name=""  value="{{tabelaarray[118]}}" readonly='true'></td>
+                            <td><button type="button" class="calculator-dia29"><i class="fa fa-calculator"></i></button></td>
+                            <td><button type="button" class="edit-dia29" hidden>  <i class="fa fa-file-pen" ></i></button></td>
+                            <td><input  type='number' name="stoploss-dia29"class="stoploss-dia29"  value="{{tabelaarray[119]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td><input  type='number' name="stopgain-dia29"class="stopgain-dia29"  value="{{tabelaarray[120]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td  class="resultado-td-dia29"  ><input  type='number' class="resultado-dia29" name="" id="resultado-"  value="{{tabelaarray[121]}}"    readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                        </tr>
+                        
+                        <tr class="tr30">   
+                            <td><input  type='text'   class="dia30" value=""  disabled='true' /></td>
+                            <td><input  type="number" class="valoratual-dia30"  name=""  value="{{tabelaarray[122]}}"  readonly='true'></td>
+                            <td><button type="button" class="calculator-dia30"><i class="fa fa-calculator"></i></button></td>
+                            <td><button type="button" class="edit-dia30" hidden>  <i class="fa fa-file-pen" ></i></button></td>
+                            <td><input  type='number' name="stoploss-dia30"class="stoploss-dia30"  value="{{tabelaarray[123]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td><input  type='number' name="stopgain-dia30"class="stopgain-dia30"  value="{{tabelaarray[124]}}"  readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                            <td  class="resultado-td-dia30"  ><input  type='number' class="resultado-dia30" name="" id="resultado-"  value="{{tabelaarray[125]}}"    readonly='true' ><i class="fa-solid fa-brazilian-real-sign"></i> </td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+            
+        
+        </div>
+    </div>
+    
+  
+</form>  {{ csrfField() }} 
